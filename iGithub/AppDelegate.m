@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "KeychainWrapper.h"
+#import "Constants.h"
+#import "SideViewController.h"
+
 #import <OctoKit.h>
 
 @interface AppDelegate ()
@@ -17,9 +21,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    SideViewController *sideViewController = [[SideViewController alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
+    UIViewController *initialViewController = token ? sideViewController : loginViewController;
     
-    
-    
+    self.window.rootViewController = initialViewController;
+
     return YES;
 }
 
