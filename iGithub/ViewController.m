@@ -7,11 +7,14 @@
 //
 
 #import "ViewController.h"
+
+#import "KeychainWrapper.h"
 #import <OctoKit.h>
 
 static NSString * clientID = @"4a4616654a78c72f9ce1";
 static NSString * clientSecret = @"f50bed3c41cfe0fe1fd878c9931e7e62bac896ef";
 
+NSString * const accessTokenKey = @"accessToken";
 @interface ViewController ()
 
 @end
@@ -26,8 +29,9 @@ static NSString * clientSecret = @"f50bed3c41cfe0fe1fd878c9931e7e62bac896ef";
 
 - (IBAction)signIn:(UIButton *)sender {
     [[OCTClient signInToServerUsingWebBrowser:OCTServer.dotComServer scopes:OCTClientAuthorizationScopesUser] subscribeNext:^(OCTClient *authenticatedClient) {
-        // Authentication was successful.
-        NSLog(@"succeed!");
+        [KeychainWrapper setValue:authenticatedClient.token forIdentifier:accessTokenKey];
+        NSAssert(authenticatedClient.token, @"NO Token!");
+        NSLog(@"token:%@", [KeychainWrapper valueForIdentifier:accessTokenKey]);
     } error:^(NSError *error) {
         // Authentication failed.
         NSLog(@"failed!");
