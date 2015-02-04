@@ -10,4 +10,7 @@
 
 @interface SideViewController : UIViewController
 
+@property (nonatomic, strong) UIViewController *centerPanel;
+
+@property (nonatomic, strong) UIView *centerPanelContainer;
 @end

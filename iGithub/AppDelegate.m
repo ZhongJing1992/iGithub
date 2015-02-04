@@ -10,7 +10,7 @@
 #import "KeychainWrapper.h"
 #import "Constants.h"
 #import "SideViewController.h"
-
+#import "CenterViewController.h"
 #import <OctoKit.h>
 
 @interface AppDelegate ()
@@ -21,14 +21,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    SideViewController *sideViewController = [[SideViewController alloc] init];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
-    UIViewController *initialViewController = token ? sideViewController : loginViewController;
+    if (token) {
+        SideViewController *sideViewController = [[SideViewController alloc] init];
+        sideViewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CenterViewController alloc] init]];
+        
+        self.window.rootViewController = sideViewController;
+    } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+        
+        self.window.rootViewController = loginViewController;
+    }
     
-    self.window.rootViewController = initialViewController;
-
     return YES;
 }
 
