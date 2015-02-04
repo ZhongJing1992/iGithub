@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "KeychainWrapper.h"
+#import "Constants.h"
+#import "SideViewController.h"
+#import "CenterViewController.h"
 #import <OctoKit.h>
 
 @interface AppDelegate ()
@@ -17,7 +21,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
+    if (token) {
+        SideViewController *sideViewController = [[SideViewController alloc] init];
+        sideViewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CenterViewController alloc] init]];
+        
+        self.window.rootViewController = sideViewController;
+    } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+        
+        self.window.rootViewController = loginViewController;
+    }
+    
     return YES;
 }
 

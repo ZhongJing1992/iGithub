@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B44CA41A7F74A10070B154 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44CA31A7F74A10070B154 /* SideViewController.m */; };
+		04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44D571A809EEE0070B154 /* CenterViewController.m */; };
 		620E18F5A293B086A95B188C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E966C87F4E44D16777301AE /* libPods.a */; };
+		AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */; };
+		AB6C05C11A1B511A005B5C32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6C05C01A1B511A005B5C32 /* Security.framework */; };
+		ABC19DB51A1AEDB500D94561 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */; };
 		ABFFD1681A19983D0063C74C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD1671A19983D0063C74C /* main.m */; };
 		ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD16A1A19983D0063C74C /* AppDelegate.m */; };
-		ABFFD16E1A19983D0063C74C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD16D1A19983D0063C74C /* ViewController.m */; };
+		ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD16D1A19983D0063C74C /* LoginViewController.m */; };
 		ABFFD1711A19983D0063C74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFFD16F1A19983D0063C74C /* Main.storyboard */; };
 		ABFFD1731A19983D0063C74C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFFD1721A19983D0063C74C /* Images.xcassets */; };
 		ABFFD1761A19983D0063C74C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFFD1741A19983D0063C74C /* LaunchScreen.xib */; };
@@ -28,14 +33,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04B44CA21A7F74A10070B154 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideViewController.h; sourceTree = "<group>"; };
+		04B44CA31A7F74A10070B154 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
+		04B44CA81A7F78A10070B154 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		04B44CA91A7F7EF70070B154 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		04B44D561A809EEE0070B154 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
+		04B44D571A809EEE0070B154 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		2E966C87F4E44D16777301AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6C05BD1A1B4F32005B5C32 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		AB6C05C01A1B511A005B5C32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
+		ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		ABFFD1621A19983D0063C74C /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFFD1661A19983D0063C74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABFFD1671A19983D0063C74C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ABFFD1691A19983D0063C74C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFFD16A1A19983D0063C74C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ABFFD16C1A19983D0063C74C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ABFFD16D1A19983D0063C74C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ABFFD16C1A19983D0063C74C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		ABFFD16D1A19983D0063C74C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		ABFFD1701A19983D0063C74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABFFD1721A19983D0063C74C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ABFFD1751A19983D0063C74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6C05C11A1B511A005B5C32 /* Security.framework in Frameworks */,
 				620E18F5A293B086A95B188C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +85,7 @@
 		1256B064FD56A751A74C8977 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB6C05C01A1B511A005B5C32 /* Security.framework */,
 				2E966C87F4E44D16777301AE /* libPods.a */,
 			);
 			name = Frameworks;
@@ -98,10 +116,20 @@
 			children = (
 				ABFFD1691A19983D0063C74C /* AppDelegate.h */,
 				ABFFD16A1A19983D0063C74C /* AppDelegate.m */,
-				ABFFD16C1A19983D0063C74C /* ViewController.h */,
-				ABFFD16D1A19983D0063C74C /* ViewController.m */,
-				ABFFD16F1A19983D0063C74C /* Main.storyboard */,
+				ABFFD16C1A19983D0063C74C /* LoginViewController.h */,
+				ABFFD16D1A19983D0063C74C /* LoginViewController.m */,
+				04B44CA21A7F74A10070B154 /* SideViewController.h */,
+				04B44CA31A7F74A10070B154 /* SideViewController.m */,
+				04B44D561A809EEE0070B154 /* CenterViewController.h */,
+				04B44D571A809EEE0070B154 /* CenterViewController.m */,
+				04B44CA81A7F78A10070B154 /* Macros.h */,
+				04B44CA91A7F7EF70070B154 /* Constants.h */,
+				ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */,
+				ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */,
+				AB6C05BD1A1B4F32005B5C32 /* KeychainWrapper.h */,
+				AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */,
 				ABFFD1721A19983D0063C74C /* Images.xcassets */,
+				ABFFD16F1A19983D0063C74C /* Main.storyboard */,
 				ABFFD1741A19983D0063C74C /* LaunchScreen.xib */,
 				ABFFD1651A19983D0063C74C /* Supporting Files */,
 			);
@@ -293,9 +321,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABFFD16E1A19983D0063C74C /* ViewController.m in Sources */,
+				ABC19DB51A1AEDB500D94561 /* NewsTableViewController.m in Sources */,
+				AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */,
+				ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */,
 				ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */,
 				ABFFD1681A19983D0063C74C /* main.m in Sources */,
+				04B44CA41A7F74A10070B154 /* SideViewController.m in Sources */,
+				04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iGithub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -431,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iGithub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
