@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B44CA41A7F74A10070B154 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44CA31A7F74A10070B154 /* SideViewController.m */; };
 		04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44D571A809EEE0070B154 /* CenterViewController.m */; };
 		620E18F5A293B086A95B188C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E966C87F4E44D16777301AE /* libPods.a */; };
 		AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */; };
@@ -33,8 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04B44CA21A7F74A10070B154 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideViewController.h; sourceTree = "<group>"; };
-		04B44CA31A7F74A10070B154 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
 		04B44CA81A7F78A10070B154 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		04B44CA91A7F7EF70070B154 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		04B44D561A809EEE0070B154 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
@@ -118,8 +115,6 @@
 				ABFFD16A1A19983D0063C74C /* AppDelegate.m */,
 				ABFFD16C1A19983D0063C74C /* LoginViewController.h */,
 				ABFFD16D1A19983D0063C74C /* LoginViewController.m */,
-				04B44CA21A7F74A10070B154 /* SideViewController.h */,
-				04B44CA31A7F74A10070B154 /* SideViewController.m */,
 				04B44D561A809EEE0070B154 /* CenterViewController.h */,
 				04B44D571A809EEE0070B154 /* CenterViewController.m */,
 				04B44CA81A7F78A10070B154 /* Macros.h */,
@@ -326,7 +321,6 @@
 				ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */,
 				ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */,
 				ABFFD1681A19983D0063C74C /* main.m in Sources */,
-				04B44CA41A7F74A10070B154 /* SideViewController.m in Sources */,
 				04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
