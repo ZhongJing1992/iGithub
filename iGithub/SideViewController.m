@@ -10,7 +10,7 @@
 #import "Macros.h"
 
 @interface SideViewController () <UIGestureRecognizerDelegate>
-@property (nonatomic, assign) CGRect centerPanelOriginalFrame;
+@property (nonatomic, assign) CGRect centerPanelRestingFrame;
 @property (nonatomic, assign) CGPoint positionBeforePan;
 @end
 
@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.centerPanelContainer = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.centerPanelOriginalFrame = self.centerPanelContainer.frame;
+    self.centerPanelRestingFrame = self.centerPanelContainer.frame;
     [self.centerPanelContainer addSubview:self.centerPanel.view];
     
     [self.view addSubview:self.centerPanelContainer];
@@ -52,28 +52,44 @@
 }
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer {
+    CGPoint translation = [recognizer translationInView:self.centerPanelContainer];
+    
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         self.positionBeforePan = self.centerPanelContainer.frame.origin;
     }
     
-    CGPoint translation = [recognizer translationInView:self.centerPanelContainer];
-    CGRect frame = self.centerPanelOriginalFrame;
-    frame.origin.x += round(translation.x);
-    self.centerPanelContainer.frame = frame;
+    if (recognizer.state == UIGestureRecognizerStateChanged) {
+        CGRect frame = self.centerPanelRestingFrame;
+        frame.origin.x += round(translation.x);
+        self.centerPanelContainer.frame = frame;
+    }
 //    NSLog(@"%@", NSStringFromCGPoint(translation));
 //    NSLog(@"%@", NSStringFromCGRect(recognizer.view.frame));
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-//        CGPoint velocity = [recognizer velocityInView:self.centerPanelContainer];
-        CGFloat offset = frame.origin.x - self.positionBeforePan.x;
-    
-        NSLog(@"%f", offset);
-        
-        CGRect newFrame = self.view.bounds;
-        newFrame.origin.x = 256;
-        self.centerPanelContainer.frame = newFrame;
+        if ([self validateThreshold:translation]) {
+            CGRect frame = self.view.bounds;
+            frame.origin.x = 256;
+            self.centerPanelRestingFrame = frame;
+            
+            [UIView animateWithDuration:.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+                CGRect newFrame = self.view.bounds;
+                newFrame.origin.x = 256;
+                self.centerPanelContainer.frame = newFrame;
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
     }
     
+}
+
+- (BOOL)validateThreshold:(CGPoint)translation {
+    if (translation.x > 100) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 #pragma mark - KVO
@@ -91,9 +107,7 @@
         UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)gestureRecognizer;
         CGPoint translation = [pan translationInView:self.centerPanelContainer];
         
-        if (translation.x > 0 ) {
-            return YES;
-        }
+        return YES;
     }
     
     return NO;
