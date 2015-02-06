@@ -40,18 +40,16 @@
     self.avatar.layer.cornerRadius = 3.0f;
     self.avatar.backgroundColor = [UIColor whiteColor];
     [tableHeaderView addSubview:self.avatar];
-    [self setupAvatarConstraint:tableHeaderView];
+    [self setupAvatarConstraint];
     
-    UILabel *login = [[UILabel alloc] init];
-    UILabel *location = [[UILabel alloc] init];
-    UILabel *blog = [[UILabel alloc] init];
+    [self setupProfileLabels];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self updateAvatar];
 }
 
-- (void)setupAvatarConstraint:(UIView *)tableHeaderView {
+- (void)setupAvatarConstraint {
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_avatar);
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.avatar
                                                                   attribute:NSLayoutAttributeWidth
@@ -60,13 +58,13 @@
                                                                   attribute:NSLayoutAttributeHeight
                                                                  multiplier:1.0f
                                                                    constant:0.0f];
-    [tableHeaderView addConstraint:constraint];
+    [self.tableView.tableHeaderView addConstraint:constraint];
     
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[_avatar(71)]"
                                                                    options:NSLayoutFormatAlignAllLeft
                                                                    metrics:nil
                                                                      views:viewsDictionary];
-    [tableHeaderView addConstraints:constraints];
+    [self.tableView.tableHeaderView addConstraints:constraints];
     
     constraint = [NSLayoutConstraint constraintWithItem:self.avatar
                                               attribute:NSLayoutAttributeCenterY
@@ -75,7 +73,7 @@
                                               attribute:NSLayoutAttributeCenterY
                                              multiplier:1.f
                                                constant:0.f];
-    [tableHeaderView addConstraint:constraint];
+    [self.tableView.tableHeaderView addConstraint:constraint];
 }
 
 - (void)updateAvatar {
@@ -112,11 +110,57 @@
         NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
         UIImage *avatarImage = [UIImage imageWithData:avatarData];
         self.avatar.image = avatarImage;
+        
     } error:^(NSError *error) {
         NSLog(@"Error");
     } completed:^{
         NSLog(@"Complete");
         [spinner stopAnimating];
+    }];
+}
+
+- (void)setupProfileLabels {
+    UILabel *login = [[UILabel alloc] init];
+    login.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    login.text = @"Your Login Name";
+    login.textColor = [UIColor whiteColor];
+    login.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.tableView.tableHeaderView addSubview:login];
+    
+    UILabel *location = [[UILabel alloc] init];
+    location.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    location.text = @"Your Location";
+    location.textColor = UIColorFromHex(0x7888A6);
+    location.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.tableView.tableHeaderView addSubview:location];
+    
+    UILabel *blog = [[UILabel alloc] init];
+    blog.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
+    blog.text = @"Your Blog Site";
+    blog.textColor = UIColorFromHex(0x91A6C7);
+    blog.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.tableView.tableHeaderView addSubview:blog];
+    
+    NSDictionary *viewsDic = NSDictionaryOfVariableBindings(login, location, blog, _avatar);
+    
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[login(17)]-8-[location(12)]-5-[blog(15)]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDic];
+    [self.tableView.tableHeaderView addConstraints:constraints];
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_avatar]-8-[login]" options:kNilOptions metrics:nil views:viewsDic];
+    [self.tableView.tableHeaderView addConstraints:constraints];
+    
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
+    RACSignal *userInfo = [client fetchUserInfo];
+    
+    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+        login.text = entity.login;
+        location.text = entity.location;
+        blog.text = entity.blog;
+    } error:^(NSError *error) {
+        NSLog(@"Error");
+    } completed:^{
+        
     }];
 }
 
