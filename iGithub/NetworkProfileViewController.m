@@ -143,7 +143,7 @@
     
     NSDictionary *viewsDic = NSDictionaryOfVariableBindings(login, location, blog, _avatar);
     
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[login(17)]-8-[location(12)]-5-[blog(15)]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDic];
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-17-[login(17)]-8-[location(12)]-5-[blog(15)]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDic];
     [self.tableView.tableHeaderView addConstraints:constraints];
     
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_avatar]-8-[login]" options:kNilOptions metrics:nil views:viewsDic];
