@@ -1,31 +1,34 @@
 //
-//  CenterViewController.m
+//  NavigationController.m
 //  iGithub
 //
-//  Created by Jack Yin on 15/2/3.
+//  Created by Jack Yin on 15/2/5.
 //  Copyright (c) 2015年 Yin Xiaoyu. All rights reserved.
 //
 
-#import "CenterViewController.h"
-#import "Macros.h"
+#import "NavigationController.h"
 
-@interface CenterViewController ()
+@interface NavigationController ()
 
 @end
 
-@implementation CenterViewController
+@implementation NavigationController
 
-- (id)init {
-    if (self = [super init]) {
-        self.title = @"Center Panel";
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
     }
+    
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:UIColorFromHex(0x4F89CD)];
+    NSDictionary *navBarTitleTextAtrributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationBar.titleTextAttributes = navBarTitleTextAtrributes;
+    self.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44D571A809EEE0070B154 /* CenterViewController.m */; };
+		04B44D581A809EEE0070B154 /* NetworkProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44D571A809EEE0070B154 /* NetworkProfileViewController.m */; };
+		04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309B1A830FF700F9578E /* LeftViewController.m */; };
+		04B5309F1A8345A000F9578E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309E1A8345A000F9578E /* NavigationController.m */; };
 		620E18F5A293B086A95B188C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E966C87F4E44D16777301AE /* libPods.a */; };
 		AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */; };
 		AB6C05C11A1B511A005B5C32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6C05C01A1B511A005B5C32 /* Security.framework */; };
@@ -22,6 +24,118 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		04B531161A84890A00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530B91A84853400F9578E /* OctoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0871EA8169E2EFC00016ACA;
+			remoteInfo = "OctoKit Mac";
+		};
+		04B531181A84890A00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530B91A84853400F9578E /* OctoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0871EC0169E2EFC00016ACA;
+			remoteInfo = "OctoKit Mac Tests";
+		};
+		04B5311A1A84890A00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530B91A84853400F9578E /* OctoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0040CF319FEC579002869A6;
+			remoteInfo = "OctoKit iOS";
+		};
+		04B5311C1A84890A00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530B91A84853400F9578E /* OctoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0040CFD19FEC579002869A6;
+			remoteInfo = "OctoKit iOS Tests";
+		};
+		04B531241A84893200F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725EA19E49ED7006002AA;
+			remoteInfo = "ReactiveCocoa-Mac";
+		};
+		04B531261A84893200F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725F519E49ED7006002AA;
+			remoteInfo = "ReactiveCocoa-MacTests";
+		};
+		04B531281A84893200F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047260C19E49F82006002AA;
+			remoteInfo = "ReactiveCocoa-iOS";
+		};
+		04B5312A1A84893200F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047261619E49F82006002AA;
+			remoteInfo = "ReactiveCocoa-iOSTests";
+		};
+		04B531321A84894300F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530C21A84853400F9578E /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC3C15F72B23004E8054;
+			remoteInfo = "Mantle-Mac";
+		};
+		04B531341A84894300F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530C21A84853400F9578E /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC5415F72B23004E8054;
+			remoteInfo = "Mantle-MacTests";
+		};
+		04B531361A84894300F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530C21A84853400F9578E /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0E9C35719F6DB38000D427D;
+			remoteInfo = "Mantle-iOS";
+		};
+		04B531381A84894300F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530C21A84853400F9578E /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0E9C36119F6DB38000D427D;
+			remoteInfo = "Mantle-iOSTests";
+		};
+		04B531411A848BAD00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0476DBD177916920071F3CB;
+			remoteInfo = "AFNetworking Mac";
+		};
+		04B531431A848BAD00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0040C9919FEC274002869A6;
+			remoteInfo = "AFNetworking iOS";
+		};
+		04B531451A848BAD00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0476E5E17791AA50071F3CB;
+			remoteInfo = "ISO8601DateFormatter Mac";
+		};
+		04B531471A848BAD00F9578E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0040CBB19FEC418002869A6;
+			remoteInfo = "ISO8601DateFormatter iOS";
+		};
 		ABFFD17C1A19983D0063C74C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ABFFD15A1A19983C0063C74C /* Project object */;
@@ -31,11 +145,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		04B530FA1A84862C00F9578E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		04B44CA81A7F78A10070B154 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		04B44CA91A7F7EF70070B154 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		04B44D561A809EEE0070B154 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
-		04B44D571A809EEE0070B154 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
+		04B44D561A809EEE0070B154 /* NetworkProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkProfileViewController.h; sourceTree = "<group>"; };
+		04B44D571A809EEE0070B154 /* NetworkProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkProfileViewController.m; sourceTree = "<group>"; };
+		04B5309A1A830FF700F9578E /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		04B5309B1A830FF700F9578E /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		04B5309D1A8345A000F9578E /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		04B5309E1A8345A000F9578E /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		04B530AB1A84755000F9578E /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGithub-dljaqifjsunxfjblhyjeqjuqedjz/Build/Products/Debug/AFNetworking.framework"; sourceTree = "<group>"; };
+		04B530AC1A84755000F9578E /* ISO8601DateFormatter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601DateFormatter.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGithub-dljaqifjsunxfjblhyjeqjuqedjz/Build/Products/Debug/ISO8601DateFormatter.framework"; sourceTree = "<group>"; };
+		04B530AF1A84758F00F9578E /* OctoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OctoKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/iGithub-dljaqifjsunxfjblhyjeqjuqedjz/Build/Products/Debug/OctoKit.framework"; sourceTree = "<group>"; };
+		04B530B91A84853400F9578E /* OctoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKit.xcodeproj; path = octokit.objc/OctoKit.xcodeproj; sourceTree = "<group>"; };
+		04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKitDependencies.xcodeproj; path = octokit.objc/External/OctoKitDependencies/OctoKitDependencies.xcodeproj; sourceTree = "<group>"; };
+		04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = octokit.objc/Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
+		04B530C21A84853400F9578E /* Mantle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantle.xcodeproj; path = octokit.objc/Carthage/Checkouts/Mantle/Mantle.xcodeproj; sourceTree = "<group>"; };
 		2E966C87F4E44D16777301AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6C05BD1A1B4F32005B5C32 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		AB6C05BE1A1B4F32005B5C32 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
@@ -79,9 +217,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B530F51A84854300F9578E /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				04B530B91A84853400F9578E /* OctoKit.xcodeproj */,
+				04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */,
+				04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */,
+				04B530C21A84853400F9578E /* Mantle.xcodeproj */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		04B531101A84890A00F9578E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04B531171A84890A00F9578E /* OctoKit.framework */,
+				04B531191A84890A00F9578E /* OctoKit Mac Tests.xctest */,
+				04B5311B1A84890A00F9578E /* OctoKit.framework */,
+				04B5311D1A84890A00F9578E /* OctoKit iOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04B5311E1A84893200F9578E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04B531251A84893200F9578E /* ReactiveCocoa.framework */,
+				04B531271A84893200F9578E /* ReactiveCocoa-MacTests.xctest */,
+				04B531291A84893200F9578E /* ReactiveCocoa.framework */,
+				04B5312B1A84893200F9578E /* ReactiveCocoa-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04B5312C1A84894300F9578E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04B531331A84894300F9578E /* Mantle.framework */,
+				04B531351A84894300F9578E /* Mantle-MacTests.xctest */,
+				04B531371A84894300F9578E /* Mantle.framework */,
+				04B531391A84894300F9578E /* Mantle-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04B5313B1A848BAD00F9578E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04B531421A848BAD00F9578E /* AFNetworking.framework */,
+				04B531441A848BAD00F9578E /* AFNetworking.framework */,
+				04B531461A848BAD00F9578E /* ISO8601DateFormatter.framework */,
+				04B531481A848BAD00F9578E /* ISO8601DateFormatter.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1256B064FD56A751A74C8977 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04B530AF1A84758F00F9578E /* OctoKit.framework */,
+				04B530AB1A84755000F9578E /* AFNetworking.framework */,
+				04B530AC1A84755000F9578E /* ISO8601DateFormatter.framework */,
 				AB6C05C01A1B511A005B5C32 /* Security.framework */,
 				2E966C87F4E44D16777301AE /* libPods.a */,
 			);
@@ -93,6 +289,7 @@
 			children = (
 				ABFFD1641A19983D0063C74C /* iGithub */,
 				ABFFD17E1A19983D0063C74C /* iGithubTests */,
+				04B530F51A84854300F9578E /* Submodules */,
 				ABFFD1631A19983D0063C74C /* Products */,
 				FA02FA3A5648F12CC183ED53 /* Pods */,
 				1256B064FD56A751A74C8977 /* Frameworks */,
@@ -115,8 +312,12 @@
 				ABFFD16A1A19983D0063C74C /* AppDelegate.m */,
 				ABFFD16C1A19983D0063C74C /* LoginViewController.h */,
 				ABFFD16D1A19983D0063C74C /* LoginViewController.m */,
-				04B44D561A809EEE0070B154 /* CenterViewController.h */,
-				04B44D571A809EEE0070B154 /* CenterViewController.m */,
+				04B44D561A809EEE0070B154 /* NetworkProfileViewController.h */,
+				04B44D571A809EEE0070B154 /* NetworkProfileViewController.m */,
+				04B5309D1A8345A000F9578E /* NavigationController.h */,
+				04B5309E1A8345A000F9578E /* NavigationController.m */,
+				04B5309A1A830FF700F9578E /* LeftViewController.h */,
+				04B5309B1A830FF700F9578E /* LeftViewController.m */,
 				04B44CA81A7F78A10070B154 /* Macros.h */,
 				04B44CA91A7F7EF70070B154 /* Constants.h */,
 				ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */,
@@ -179,6 +380,7 @@
 				ABFFD1601A19983C0063C74C /* Resources */,
 				ABFFD18B1A1998730063C74C /* Build Number */,
 				FE562E1AD57AEBFAE684F9D9 /* Copy Pods Resources */,
+				04B530FA1A84862C00F9578E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +438,24 @@
 			mainGroup = ABFFD1591A19983C0063C74C;
 			productRefGroup = ABFFD1631A19983D0063C74C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 04B5312C1A84894300F9578E /* Products */;
+					ProjectRef = 04B530C21A84853400F9578E /* Mantle.xcodeproj */;
+				},
+				{
+					ProductGroup = 04B531101A84890A00F9578E /* Products */;
+					ProjectRef = 04B530B91A84853400F9578E /* OctoKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 04B5313B1A848BAD00F9578E /* Products */;
+					ProjectRef = 04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */;
+				},
+				{
+					ProductGroup = 04B5311E1A84893200F9578E /* Products */;
+					ProjectRef = 04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ABFFD1611A19983C0063C74C /* iGithub */,
@@ -243,6 +463,121 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		04B531171A84890A00F9578E /* OctoKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OctoKit.framework;
+			remoteRef = 04B531161A84890A00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531191A84890A00F9578E /* OctoKit Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "OctoKit Mac Tests.xctest";
+			remoteRef = 04B531181A84890A00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B5311B1A84890A00F9578E /* OctoKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OctoKit.framework;
+			remoteRef = 04B5311A1A84890A00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B5311D1A84890A00F9578E /* OctoKit iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "OctoKit iOS Tests.xctest";
+			remoteRef = 04B5311C1A84890A00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531251A84893200F9578E /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 04B531241A84893200F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531271A84893200F9578E /* ReactiveCocoa-MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoa-MacTests.xctest";
+			remoteRef = 04B531261A84893200F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531291A84893200F9578E /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 04B531281A84893200F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B5312B1A84893200F9578E /* ReactiveCocoa-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoa-iOSTests.xctest";
+			remoteRef = 04B5312A1A84893200F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531331A84894300F9578E /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 04B531321A84894300F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531351A84894300F9578E /* Mantle-MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle-MacTests.xctest";
+			remoteRef = 04B531341A84894300F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531371A84894300F9578E /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 04B531361A84894300F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531391A84894300F9578E /* Mantle-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle-iOSTests.xctest";
+			remoteRef = 04B531381A84894300F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531421A848BAD00F9578E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 04B531411A848BAD00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531441A848BAD00F9578E /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 04B531431A848BAD00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531461A848BAD00F9578E /* ISO8601DateFormatter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ISO8601DateFormatter.framework;
+			remoteRef = 04B531451A848BAD00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04B531481A848BAD00F9578E /* ISO8601DateFormatter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ISO8601DateFormatter.framework;
+			remoteRef = 04B531471A848BAD00F9578E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ABFFD1601A19983C0063C74C /* Resources */ = {
@@ -320,8 +655,10 @@
 				AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */,
 				ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */,
 				ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */,
+				04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */,
+				04B5309F1A8345A000F9578E /* NavigationController.m in Sources */,
 				ABFFD1681A19983D0063C74C /* main.m in Sources */,
-				04B44D581A809EEE0070B154 /* CenterViewController.m in Sources */,
+				04B44D581A809EEE0070B154 /* NetworkProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +781,18 @@
 			baseConfigurationReference = EC96A54A7C6F5F7E62D4ACED /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iGithub-dljaqifjsunxfjblhyjeqjuqedjz/Build/Products/Debug",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JASidePanels\"",
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = iGithub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -456,8 +803,18 @@
 			baseConfigurationReference = DB33F8486EDED806E09E008E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iGithub-dljaqifjsunxfjblhyjeqjuqedjz/Build/Products/Debug",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JASidePanels\"",
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = iGithub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

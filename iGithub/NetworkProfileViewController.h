@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CenterViewController : UIViewController
+@interface NetworkProfileViewController : UITableViewController
 
 @end

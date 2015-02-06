@@ -7,11 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "KeychainWrapper.h"
+
+#import "Macros.h"
 #import "Constants.h"
-#import "SideViewController.h"
-#import "CenterViewController.h"
-#import <OctoKit.h>
+#import "KeychainWrapper.h"
+#import "LeftViewController.h"
+#import "NetworkProfileViewController.h"
+#import "NavigationController.h"
+
+#import <OctoKit/OctoKit.h>
+#import <JASidePanelController.h>
 
 @interface AppDelegate ()
 
@@ -19,14 +24,16 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
     if (token) {
-        SideViewController *sideViewController = [[SideViewController alloc] init];
-        sideViewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[CenterViewController alloc] init]];
+        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NetworkProfileViewController alloc] init]];
+        navController.navigationBar.barTintColor = UIColorFromHex(0x183B6D);
+        JASidePanelController *jaSidePanelController = [[JASidePanelController alloc] init];
+        jaSidePanelController.leftPanel = [[LeftViewController alloc] init];
+        jaSidePanelController.centerPanel = navController;
         
-        self.window.rootViewController = sideViewController;
+        self.window.rootViewController = jaSidePanelController;
     } else {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
