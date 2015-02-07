@@ -10,10 +10,11 @@
 #import "Macros.h"
 #import "Constants.h"
 #import "KeychainWrapper.h"
+#import "FollowerTableViewCell.h"
 
 #import <OctoKit/OctoKit.h>
 
-@interface NetworkProfileViewController ()
+@interface NetworkProfileViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UIImageView *avatar;
 @end
 
@@ -162,6 +163,60 @@
     } completed:^{
         
     }];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    }
+    
+    if (section == 1) {
+        return @"Popular repositories";
+    }
+    
+    return @"Others";
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
+    
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0: {
+            FollowerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
+            if (!cell) {
+                cell = [[FollowerTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
+                
+            }
+            
+            return cell;
+        }
+            break;
+            
+        default: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
+            }
+            
+            cell.textLabel.text = [NSString stringWithFormat:@"octo %ld", (long)indexPath.row];
+            cell.imageView.backgroundColor = [UIColor blackColor];
+            
+            return cell;
+
+        }
+            break;
+    }
+    
 }
 
 @end
