@@ -10,7 +10,7 @@
 #import "Macros.h"
 #import "Constants.h"
 #import "KeychainWrapper.h"
-#import "FollowerTableViewCell.h"
+#import "VcardStatsTableViewCell.h"
 
 #import <OctoKit/OctoKit.h>
 
@@ -114,6 +114,7 @@
         
     } error:^(NSError *error) {
         NSLog(@"Error");
+        [spinner stopAnimating];
     } completed:^{
         NSLog(@"Complete");
         [spinner stopAnimating];
@@ -192,20 +193,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
-            FollowerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
+            VcardStatsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
             if (!cell) {
-                cell = [[FollowerTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
+                cell = [[VcardStatsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
                 
             }
-            
+
             return cell;
         }
             break;
             
         default: {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
             }
             
             cell.textLabel.text = [NSString stringWithFormat:@"octo %ld", (long)indexPath.row];

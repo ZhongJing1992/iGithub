@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FollowerTableViewCell : UITableViewCell
+@interface VcardStatsTableViewCell : UITableViewCell
 
 @end
