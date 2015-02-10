@@ -65,23 +65,17 @@
                                                                      attribute:NSLayoutAttributeCenterX
                                                                     multiplier:1.f
                                                                       constant:0.f]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.stars
-                                                                     attribute:NSLayoutAttributeCenterY
-                                                                     relatedBy:NSLayoutRelationEqual
-                                                                        toItem:self.contentView
-                                                                     attribute:NSLayoutAttributeCenterY
-                                                                    multiplier:1.f
-                                                                      constant:0.f]];
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_followers, _stars, _following);
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-31-[_stars]-31-|"
                                                                                  options:kNilOptions
                                                                                  metrics:nil
                                                                                    views:viewsDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_followers]-(>=60)-[_stars]-(>=60)-[_following]"
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_followers]-(60)-[_stars]-(60)-[_following]"
                                                                                  options:NSLayoutFormatAlignAllCenterY
                                                                                  metrics:nil
                                                                                    views:viewsDictionary]];
+
         self.didSetupConstraints = YES;
     }
     

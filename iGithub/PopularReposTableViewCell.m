@@ -67,7 +67,7 @@
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_octiconRepo, _repoTitle, _repoDescription, _repoStars, _octiconStar);
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-9-[_octiconRepo]" options:kNilOptions metrics:nil views:viewsDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_octiconRepo]-7-[_repoTitle]" options:NSLayoutFormatAlignAllTop metrics:nil views:viewsDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_repoTitle]-3-[_repoDescription]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_repoTitle]-3-[_repoDescription]-7-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary]];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[_octiconStar]" options:kNilOptions metrics:nil views:viewsDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_repoStars]-4-[_octiconStar]-14-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
