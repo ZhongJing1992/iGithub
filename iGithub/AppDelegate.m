@@ -27,7 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
     if (token) {
-        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NetworkProfileViewController alloc] init]];
+        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NetworkProfileViewController alloc] initWithStyle:UITableViewStyleGrouped]];
         navController.navigationBar.barTintColor = UIColorFromHex(0x183B6D);
         JASidePanelController *jaSidePanelController = [[JASidePanelController alloc] init];
         jaSidePanelController.leftPanel = [[LeftViewController alloc] init];

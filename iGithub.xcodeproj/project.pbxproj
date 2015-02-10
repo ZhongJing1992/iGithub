@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042807281A89A2E40052A5EA /* PopularReposTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042807271A89A2E40052A5EA /* PopularReposTableViewCell.m */; };
+		042807361A89E3F80052A5EA /* VcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042807351A89E3F80052A5EA /* VcardView.m */; };
 		04B44D581A809EEE0070B154 /* NetworkProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B44D571A809EEE0070B154 /* NetworkProfileViewController.m */; };
 		04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309B1A830FF700F9578E /* LeftViewController.m */; };
 		04B5309F1A8345A000F9578E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309E1A8345A000F9578E /* NavigationController.m */; };
@@ -213,6 +214,8 @@
 /* Begin PBXFileReference section */
 		042807261A89A2E40052A5EA /* PopularReposTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularReposTableViewCell.h; sourceTree = "<group>"; };
 		042807271A89A2E40052A5EA /* PopularReposTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularReposTableViewCell.m; sourceTree = "<group>"; };
+		042807341A89E3F80052A5EA /* VcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardView.h; sourceTree = "<group>"; };
+		042807351A89E3F80052A5EA /* VcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardView.m; sourceTree = "<group>"; };
 		04B44CA81A7F78A10070B154 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		04B44CA91A7F7EF70070B154 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		04B44D561A809EEE0070B154 /* NetworkProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkProfileViewController.h; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				ABFFD16D1A19983D0063C74C /* LoginViewController.m */,
 				04B44D561A809EEE0070B154 /* NetworkProfileViewController.h */,
 				04B44D571A809EEE0070B154 /* NetworkProfileViewController.m */,
+				042807341A89E3F80052A5EA /* VcardView.h */,
+				042807351A89E3F80052A5EA /* VcardView.m */,
 				042807261A89A2E40052A5EA /* PopularReposTableViewCell.h */,
 				042807271A89A2E40052A5EA /* PopularReposTableViewCell.m */,
 				04CBA5111A85C7B900F82AA9 /* VcardStatsTableViewCell.h */,
@@ -727,6 +732,7 @@
 				AB6C05BF1A1B4F32005B5C32 /* KeychainWrapper.m in Sources */,
 				04CBA5131A85C7B900F82AA9 /* VcardStatsTableViewCell.m in Sources */,
 				ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */,
+				042807361A89E3F80052A5EA /* VcardView.m in Sources */,
 				04CBA5161A87111B00F82AA9 /* VcardStats.m in Sources */,
 				ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */,
 				04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */,

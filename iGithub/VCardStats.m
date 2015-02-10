@@ -45,7 +45,10 @@
 
 - (void)updateConstraints {
     if (!self.didSetupConstraints) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.vcardStatCountLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.f constant:0.f]];
+
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_vcardStatCountLabel, _textMutedLabel);
+        [self.vcardStatCountLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_vcardStatCountLabel][_textMutedLabel]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:viewsDictionary]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_vcardStatCountLabel]|" options:kNilOptions metrics:nil views:viewsDictionary]];
         self.didSetupConstraints = YES;
