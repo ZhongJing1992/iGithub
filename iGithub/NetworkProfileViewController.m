@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "KeychainWrapper.h"
 #import "VcardStatsTableViewCell.h"
+#import "PopularReposTableViewCell.h"
 
 #import <OctoKit/OctoKit.h>
 
@@ -193,12 +194,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
-            VcardStatsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repo"];
+            VcardStatsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"vcardStats"];
             if (!cell) {
-                cell = [[VcardStatsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"repo"];
+                cell = [[VcardStatsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"vcardStats"];
                 
             }
 
+            return cell;
+        }
+            break;
+            
+        case 1: {
+            PopularReposTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"popularRepo"];
+            if (!cell) {
+                cell = [[PopularReposTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"popularRepo"];
+            }
+            
             return cell;
         }
             break;
@@ -209,9 +220,8 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
             }
             
-            cell.textLabel.text = [NSString stringWithFormat:@"octo %ld", (long)indexPath.row];
-            cell.imageView.backgroundColor = [UIColor blackColor];
-            
+            cell.textLabel.text = @"1";
+             
             return cell;
 
         }
