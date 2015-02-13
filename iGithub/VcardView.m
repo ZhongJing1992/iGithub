@@ -15,11 +15,10 @@
 
 @interface VcardView ()
 @property (nonatomic, assign) BOOL didSetupConstraints;
-@property (nonatomic, strong) UIImageView *avatar;
-@property (nonatomic, strong) UILabel *login;
-@property (nonatomic, strong) UILabel *location;
-@property (nonatomic, strong) UILabel *blog;
-@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) UILabel *loginLabel;
+@property (nonatomic, strong) UILabel *locationLabel;
+@property (nonatomic, strong) UILabel *blogLabel;
 @end
 
 @implementation VcardView
@@ -36,6 +35,22 @@
     return self;
 }
 
+- (void)setAvatarImage:(UIImage *)avatarImage {
+    _avatarImageView.image = avatarImage;
+}
+
+- (void)setLogin:(NSString *)login {
+    _loginLabel.text = login;
+}
+
+- (void)setLocation:(NSString *)location {
+    _locationLabel.text = location;
+}
+
+- (void)setBlog:(NSString *)blog {
+    _blogLabel.text = blog;
+}
+
 + (BOOL)requiresConstraintBasedLayout {
     return YES;
 }
@@ -46,34 +61,43 @@
 
 - (void)updateConstraints {
     if (!self.didSetupConstraints) {
-        [self.avatar addConstraint:[NSLayoutConstraint constraintWithItem:self.spinner
+        [self.avatarImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.spinner
                                                                 attribute:NSLayoutAttributeCenterX
                                                                 relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.avatar
+                                                                   toItem:self.avatarImageView
                                                                 attribute:NSLayoutAttributeCenterX
                                                                multiplier:1.f
                                                                  constant:0.f]];
         
-        [self.avatar addConstraint:[NSLayoutConstraint constraintWithItem:self.spinner
+        [self.avatarImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.spinner
                                                                 attribute:NSLayoutAttributeCenterY
                                                                 relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.avatar
+                                                                   toItem:self.avatarImageView
                                                                 attribute:NSLayoutAttributeCenterY
                                                                multiplier:1.f
                                                                  constant:0.f]];
         
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatar
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarImageView
                                                          attribute:NSLayoutAttributeWidth
                                                          relatedBy:NSLayoutRelationEqual
-                                                            toItem:self.avatar
+                                                            toItem:self.avatarImageView
                                                          attribute:NSLayoutAttributeHeight
                                                         multiplier:1.f
                                                           constant:0.f]];
         
-        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_avatar, _login, _location, _blog);
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_avatar(71)]" options:kNilOptions metrics:nil views:viewsDictionary]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[_avatar]-8-[_location]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_login]-6-[_location]-5-[_blog]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary]];
+        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_avatarImageView, _loginLabel, _locationLabel, _blogLabel);
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_avatarImageView]-10-|"
+                                                                     options:kNilOptions
+                                                                     metrics:nil
+                                                                       views:viewsDictionary]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[_avatarImageView]-8-[_locationLabel]"
+                                                                     options:NSLayoutFormatAlignAllCenterY
+                                                                     metrics:nil
+                                                                       views:viewsDictionary]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_loginLabel]-6-[_locationLabel]-5-[_blogLabel]"
+                                                                     options:NSLayoutFormatAlignAllLeft
+                                                                     metrics:nil
+                                                                       views:viewsDictionary]];
         
         self.didSetupConstraints = YES;
     }
@@ -82,57 +106,43 @@
 }
 
 - (void)setupVcardAvatar {
-    self.avatar = [[UIImageView alloc] init];
-    self.avatar.translatesAutoresizingMaskIntoConstraints = NO;
-    self.avatar.layer.masksToBounds = YES;
-    self.avatar.layer.cornerRadius = 3.0f;
-    self.avatar.backgroundColor = [UIColor whiteColor];
-    [self addSubview:self.avatar];
+    self.avatarImageView = [[UIImageView alloc] init];
+    self.avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.avatarImageView.layer.masksToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = 3.0f;
+    self.avatarImageView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.avatarImageView];
     
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.spinner.translatesAutoresizingMaskIntoConstraints = NO;
     self.spinner.color = [UIColor blackColor];
     self.spinner.hidesWhenStopped = YES;
-    [self.avatar addSubview:self.spinner];
+    [self.avatarImageView addSubview:self.spinner];
 
 }
 
 - (void)setupVcardDetails {
-    self.login = [[UILabel alloc] init];
-    self.login.translatesAutoresizingMaskIntoConstraints = NO;
-    self.login.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
-    self.login.text = @"Your Login Name";
-    self.login.textColor = [UIColor whiteColor];
+    self.loginLabel = [[UILabel alloc] init];
+    self.loginLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.loginLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    self.loginLabel.text = @"Your Login Name";
+    self.loginLabel.textColor = [UIColor whiteColor];
     
-    self.location = [[UILabel alloc] init];
-    self.location.translatesAutoresizingMaskIntoConstraints = NO;
-    self.location.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-    self.location.text = @"Your Location";
-    self.location.textColor = UIColorFromHex(0x7888A6);
+    self.locationLabel = [[UILabel alloc] init];
+    self.locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    self.locationLabel.text = @"Your Location";
+    self.locationLabel.textColor = UIColorFromHex(0x7888A6);
     
-    self.blog = [[UILabel alloc] init];
-    self.blog.translatesAutoresizingMaskIntoConstraints = NO;
-    self.blog.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
-    self.blog.text = @"Your Blog Site";
-    self.blog.textColor = UIColorFromHex(0x91A6C7);
+    self.blogLabel = [[UILabel alloc] init];
+    self.blogLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.blogLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
+    self.blogLabel.text = @"Your Blog Site";
+    self.blogLabel.textColor = UIColorFromHex(0x91A6C7);
     
-    [self addSubview:self.login];
-    [self addSubview:self.location];
-    [self addSubview:self.blog];
-    
-//    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-//    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-//    RACSignal *userInfo = [client fetchUserInfo];
-//    
-//    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
-//        self.login.text = entity.login;
-//        self.location.text = entity.location;
-//        self.blog.text = entity.blog;
-//    } error:^(NSError *error) {
-//        NSLog(@"Error");
-//    } completed:^{
-//        
-//    }];
+    [self addSubview:self.loginLabel];
+    [self addSubview:self.locationLabel];
+    [self addSubview:self.blogLabel];
 }
 
 @end

@@ -39,6 +39,8 @@
     frame.size.height = 90;
     VcardView *tableHeaderView = [[VcardView alloc] initWithFrame:frame];
     self.tableView.tableHeaderView = tableHeaderView;
+    
+    [self fetchDataForVcard:tableHeaderView];
 }
 
 - (void)updateViewConstraints {
@@ -56,27 +58,51 @@
 //}
 
 
-//- (void)fetchVcardAvatar {
+- (void)fetchDataForVcard:(VcardView *)vcard {
+    [vcard.spinner startAnimating];
+    
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
+    RACSignal *userInfo = [client fetchUserInfo];
+    
+    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
+        UIImage *avatarImage = [UIImage imageWithData:avatarData];
+        
+        vcard.avatarImage = avatarImage;
+        vcard.login = entity.login;
+        vcard.location = entity.location;
+        vcard.blog = entity.blog;
+    } error:^(NSError *error) {
+        [vcard.spinner stopAnimating];
+    } completed:^{
+        [vcard.spinner stopAnimating];
+    }];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 17;
+}
+
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    if (section == 1) {
+//        UILabel *header = [[UILabel alloc] init];
+//        header.text = @"Popular repositories";
+//        header.textColor = UIColorFromHex(0x333333);
+//        header.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
+//        
+//        UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 17)];
+//        sectionHeaderView.backgroundColor = UIColorFromHex(0xF5F5F5);
+//        [sectionHeaderView addSubview:header];
+//        
+//        return sectionHeaderView;
+//    }
 //    
-//    
-//    [self.spinner startAnimating];
-//    
-//    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-//    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-//    RACSignal *userInfo = [client fetchUserInfo];
-//    
-//    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
-//        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
-//        UIImage *avatarImage = [UIImage imageWithData:avatarData];
-//        self.avatar.image = avatarImage;
-//    } error:^(NSError *error) {
-//        [self.spinner stopAnimating];
-//    } completed:^{
-//        [self.spinner stopAnimating];
-//    }];
+//    return nil;
 //}
-
-
 
 #pragma mark - UITableViewDataSource
 
@@ -112,8 +138,9 @@
                 cell = [[VcardStatsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"vcardStats"];
                 
             }
-//            [cell layoutIfNeeded];
-
+            
+            [self fetchDataForVcardStatsCell:cell];
+            
             return cell;
         }
             break;
@@ -123,7 +150,6 @@
             if (!cell) {
                 cell = [[PopularReposTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"popularRepo"];
             }
-//            [cell layoutIfNeeded];
             
             return cell;
         }
@@ -143,6 +169,23 @@
             break;
     }
     
+}
+
+- (void)fetchDataForVcardStatsCell:(VcardStatsTableViewCell *)cell {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
+    RACSignal *userInfo = [client fetchUserInfo];
+
+    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+        cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)entity.followers];
+        cell.following.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)entity.following];
+    } error:^(NSError *error) {
+        NSLog(@"Error");
+    } completed:^{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }];
 }
 
 @end

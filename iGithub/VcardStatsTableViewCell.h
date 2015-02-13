@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VCardStats.h"
 
 @interface VcardStatsTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) VcardStats *followers;
+@property (nonatomic, strong) VcardStats *stars;
+@property (nonatomic, strong) VcardStats *following;
 @end

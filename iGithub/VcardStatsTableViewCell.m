@@ -7,13 +7,9 @@
 //
 
 #import "VcardStatsTableViewCell.h"
-#import "VCardStats.h"
 #import "Macros.h"
 
 @interface VcardStatsTableViewCell ()
-@property (nonatomic, strong) VcardStats *followers;
-@property (nonatomic, strong) VcardStats *stars;
-@property (nonatomic, strong) VcardStats *following;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @end
 
@@ -32,7 +28,7 @@
 - (void)setupFollowers {
     _followers = [[VcardStats alloc] initWithFrame:CGRectZero];
     _followers.translatesAutoresizingMaskIntoConstraints = NO;
-    _followers.vcardStatCount = @"18";
+    _followers.vcardStatCount = @"0";
     _followers.textMuted = @"Followers";
     [self.contentView addSubview:_followers];
 
@@ -50,7 +46,7 @@
 - (void)setupFollowing {
     _following = [[VcardStats alloc] initWithFrame:CGRectZero];
     _following.translatesAutoresizingMaskIntoConstraints = NO;
-    _following.vcardStatCount = @"74";
+    _following.vcardStatCount = @"0";
     _following.textMuted = @"Following";
     [self.contentView addSubview:_following];
 

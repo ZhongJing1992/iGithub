@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface VcardView : UIView
-
+@property (nonatomic, strong) UIImage *avatarImage;
+@property (nonatomic, copy) NSString *login;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *blog;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @end
