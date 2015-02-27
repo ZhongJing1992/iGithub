@@ -115,6 +115,10 @@
         return 1;
     }
     
+    if (section == 1) {
+        return self.popularRepos.count;
+    }
+    
     return 3;
 }
 
@@ -229,7 +233,11 @@
     } error:^(NSError *error) {
         
     } completed:^{
-        self.popularRepos = [sortedArray objectsAtIndexes:[[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 4)]];
+        if (sortedArray.count < 4) {
+            self.popularRepos = sortedArray;
+        } else {
+            self.popularRepos = [sortedArray objectsAtIndexes:[[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 4)]];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             [self.tableView reloadData];
