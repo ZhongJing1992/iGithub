@@ -28,7 +28,7 @@
 - (void)setupFollowers {
     _followers = [[VcardStats alloc] initWithFrame:CGRectZero];
     _followers.translatesAutoresizingMaskIntoConstraints = NO;
-    _followers.vcardStatCount = @"0";
+    _followers.vcardStatCount = @"-";
     _followers.textMuted = @"Followers";
     [self.contentView addSubview:_followers];
 
@@ -46,7 +46,7 @@
 - (void)setupFollowing {
     _following = [[VcardStats alloc] initWithFrame:CGRectZero];
     _following.translatesAutoresizingMaskIntoConstraints = NO;
-    _following.vcardStatCount = @"0";
+    _following.vcardStatCount = @"-";
     _following.textMuted = @"Following";
     [self.contentView addSubview:_following];
 

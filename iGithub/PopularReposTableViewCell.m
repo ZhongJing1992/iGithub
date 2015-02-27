@@ -12,13 +12,29 @@
 @interface PopularReposTableViewCell ()
 @property (nonatomic, strong) UIImageView *octiconRepo;
 @property (nonatomic, strong) UIImageView *octiconStar;
-@property (nonatomic, strong) UILabel *repoTitle;
-@property (nonatomic, strong) UILabel *repoDescription;
-@property (nonatomic, strong) UILabel *repoStars;
+@property (nonatomic, strong) UILabel *repoTitleLabel;
+@property (nonatomic, strong) UILabel *repoDescriptionLabel;
+@property (nonatomic, strong) UILabel *repoStarsLabel;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @end
 
 @implementation PopularReposTableViewCell
+
+- (void)setRepoTitle:(NSString *)repoTitle {
+    _repoTitleLabel.text = repoTitle;
+}
+
+- (void)setRepoDescription:(NSString *)repoDescription {
+    if (repoDescription.length != 0) {
+        _repoDescriptionLabel.text = repoDescription;
+    } else {
+        _repoDescriptionLabel.text = @" ";
+    }
+}
+
+- (void)setRepoStars:(NSUInteger)repoStars {
+    _repoStarsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)repoStars];
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -29,31 +45,31 @@
         _octiconStar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OctStar"]];
         _octiconStar.translatesAutoresizingMaskIntoConstraints = NO;
         
-        _repoTitle = [[UILabel alloc] init];
-        _repoTitle.translatesAutoresizingMaskIntoConstraints = NO;
-        _repoTitle.numberOfLines = 0;
-        _repoTitle.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-        _repoTitle.text = @"Subtitle";
-        _repoTitle.textColor = UIColorFromHex(0x333333);
+        _repoTitleLabel = [[UILabel alloc] init];
+        _repoTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _repoTitleLabel.numberOfLines = 0;
+        _repoTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
+        _repoTitleLabel.text = @" ";
+        _repoTitleLabel.textColor = UIColorFromHex(0x333333);
         
-        _repoDescription = [[UILabel alloc] init];
-        _repoDescription.translatesAutoresizingMaskIntoConstraints = NO;
-        _repoDescription.numberOfLines = 0;
-        _repoDescription.font = [UIFont fontWithName:@"STHeitiSC-Light" size:9];
-        _repoDescription.text = @"网易斯坦福大学公开课：iOS 7应用开发字幕文件";
-        _repoDescription.textColor = UIColorFromHex(0x888888);
+        _repoDescriptionLabel = [[UILabel alloc] init];
+        _repoDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _repoDescriptionLabel.numberOfLines = 0;
+        _repoDescriptionLabel.font = [UIFont fontWithName:@"STHeitiSC-Light" size:9];
+        _repoDescriptionLabel.text = @" ";
+        _repoDescriptionLabel.textColor = UIColorFromHex(0x888888);
         
-        _repoStars = [[UILabel alloc] init];
-        _repoStars.translatesAutoresizingMaskIntoConstraints = NO;
-        _repoStars.numberOfLines = 0;
-        _repoStars.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
-        _repoStars.text = @"150";
-        _repoStars.textColor = UIColorFromHex(0x888888);
+        _repoStarsLabel = [[UILabel alloc] init];
+        _repoStarsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _repoStarsLabel.numberOfLines = 0;
+        _repoStarsLabel.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
+        _repoStarsLabel.text = @"0";
+        _repoStarsLabel.textColor = UIColorFromHex(0x888888);
         
         [self.contentView addSubview:_octiconRepo];
-        [self.contentView addSubview:_repoTitle];
-        [self.contentView addSubview:_repoDescription];
-        [self.contentView addSubview:_repoStars];
+        [self.contentView addSubview:_repoTitleLabel];
+        [self.contentView addSubview:_repoDescriptionLabel];
+        [self.contentView addSubview:_repoStarsLabel];
         [self.contentView addSubview:_octiconStar];
         
         [self setNeedsUpdateConstraints];
@@ -64,13 +80,13 @@
 
 - (void)updateConstraints {
     if (!self.didSetupConstraints) {
-        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_octiconRepo, _repoTitle, _repoDescription, _repoStars, _octiconStar);
+        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_octiconRepo, _repoTitleLabel, _repoDescriptionLabel, _repoStarsLabel, _octiconStar);
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-9-[_octiconRepo]" options:kNilOptions metrics:nil views:viewsDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_octiconRepo]-7-[_repoTitle]" options:NSLayoutFormatAlignAllTop metrics:nil views:viewsDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_repoTitle]-3-[_repoDescription]-7-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_octiconRepo]-7-[_repoTitleLabel]" options:NSLayoutFormatAlignAllTop metrics:nil views:viewsDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_repoTitleLabel]-3-[_repoDescriptionLabel]-7-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary]];
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[_octiconStar]" options:kNilOptions metrics:nil views:viewsDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_repoStars]-4-[_octiconStar]-14-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[_octiconStar]-15-|" options:kNilOptions metrics:nil views:viewsDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_repoStarsLabel]-4-[_octiconStar]-14-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
         
         self.didSetupConstraints = YES;
     }

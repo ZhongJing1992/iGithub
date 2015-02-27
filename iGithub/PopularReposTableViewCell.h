@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PopularReposTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) NSString *repoTitle;
+@property (nonatomic, strong) NSString *repoDescription;
+@property (nonatomic, assign) NSUInteger repoStars;
 @end

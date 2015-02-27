@@ -13,12 +13,13 @@
 #import "VcardView.h"
 #import "VcardStatsTableViewCell.h"
 #import "PopularReposTableViewCell.h"
+#import "PopularRepositories.h"
 
-#import <OctoKit/OctoKit.h>
+#import <OctoKit/Octokit.h>
 
 @interface NetworkProfileViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) BOOL didSetupConstraints;
-
+@property (nonatomic, strong) NSArray *popularRepos;
 @end
 
 @implementation NetworkProfileViewController
@@ -41,6 +42,17 @@
     self.tableView.tableHeaderView = tableHeaderView;
     
     [self fetchDataForVcard:tableHeaderView];
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self fetchDataForPopularRepos];
 }
 
 - (void)updateViewConstraints {
@@ -53,39 +65,15 @@
     [super updateViewConstraints];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [self updateAvatar];
-//}
-
-
-- (void)fetchDataForVcard:(VcardView *)vcard {
-    [vcard.spinner startAnimating];
-    
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-    RACSignal *userInfo = [client fetchUserInfo];
-    
-    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
-        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
-        UIImage *avatarImage = [UIImage imageWithData:avatarData];
-        
-        vcard.avatarImage = avatarImage;
-        vcard.login = entity.login;
-        vcard.location = entity.location;
-        vcard.blog = entity.blog;
-    } error:^(NSError *error) {
-        [vcard.spinner stopAnimating];
-    } completed:^{
-        [vcard.spinner stopAnimating];
-    }];
-}
-
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 17;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 45;
+}
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    if (section == 1) {
@@ -151,7 +139,15 @@
                 cell = [[PopularReposTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"popularRepo"];
             }
             
+            OCTRepository *repo = (OCTRepository *)[self.popularRepos objectAtIndex:indexPath.row];
+            if (repo) {
+                cell.repoTitle = repo.name;
+                cell.repoDescription = repo.repoDescription;
+                cell.repoStars = repo.stargazersCount;
+            }
+            
             return cell;
+
         }
             break;
             
@@ -171,6 +167,28 @@
     
 }
 
+- (void)fetchDataForVcard:(VcardView *)vcard {
+    [vcard.spinner startAnimating];
+    
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
+    RACSignal *userInfo = [client fetchUserInfo];
+    
+    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
+        UIImage *avatarImage = [UIImage imageWithData:avatarData];
+        
+        vcard.avatarImage = avatarImage;
+        vcard.login = entity.login;
+        vcard.location = entity.location;
+        vcard.blog = entity.blog;
+    } error:^(NSError *error) {
+        [vcard.spinner stopAnimating];
+    } completed:^{
+        [vcard.spinner stopAnimating];
+    }];
+}
+
 - (void)fetchDataForVcardStatsCell:(VcardStatsTableViewCell *)cell {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -187,5 +205,38 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
 }
+
+- (void)fetchDataForPopularRepos {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
+    RACSignal *repositories = [client fetchUserRepositories];
+    
+    NSArray * __block sortedArray;
+    [[repositories collect] subscribeNext:^(OCTRepository *repository) {
+        sortedArray = [(NSArray *)repository sortedArrayUsingComparator:^NSComparisonResult(OCTRepository *repo1, OCTRepository *repo2) {
+            if (repo1.stargazersCount > repo2.stargazersCount) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            
+            if (repo1.stargazersCount < repo2.stargazersCount) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            return (NSComparisonResult)NSOrderedSame;
+        }];
+    } error:^(NSError *error) {
+        
+    } completed:^{
+        self.popularRepos = [sortedArray objectsAtIndexes:[[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 4)]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+
 
 @end
