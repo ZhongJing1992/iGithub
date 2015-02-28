@@ -62,11 +62,49 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 17;
+    if (section == 0) {
+        return 0;
+    }
+    
+    return 18;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 45;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), 18)];
+    view.backgroundColor = UIColorFromHex(0xF5F5F5);
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = UIColorFromHex(0x333333);
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
+//    label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+
+    if (section == 1) {
+        label.text = @"Popular repositories";
+    } else {
+        label.text = @"Others";
+    }
+    
+    [label sizeToFit];
+    CGPoint center = label.center;
+    center.x += 10 ;
+    center.y = view.center.y;
+    label.center = center;
+    
+    [view addSubview:label];
+
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark - UITableViewDataSource

@@ -63,7 +63,7 @@
                                                                       constant:0.f]];
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_followers, _stars, _following);
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-31-[_stars]-31-|"
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[_stars]-15-|"
                                                                                  options:kNilOptions
                                                                                  metrics:nil
                                                                                    views:viewsDictionary]];

@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "star-gray.png"
+      "filename" : "organization-gray.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "star-gray@2x.png"
+      "filename" : "organization-gray@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "star-gray@3x.png"
+      "filename" : "organization-gray@3x.png"
     }
   ],
   "info" : {

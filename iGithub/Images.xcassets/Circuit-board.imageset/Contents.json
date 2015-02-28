@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "star-gray.png"
+      "filename" : "circuit-board-gray.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "star-gray@2x.png"
+      "filename" : "circuit-board-gray@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "star-gray@3x.png"
+      "filename" : "circuit-board-gray@3x.png"
     }
   ],
   "info" : {
