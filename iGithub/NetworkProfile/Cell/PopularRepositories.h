@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <OctoKit/OctoKit.h>
 
-@interface PopularRepositories : NSObject <UITableViewDataSource>
+@interface PopularRepositories : NSObject
 @property (nonatomic, strong) NSArray *popularRepos;
 - (OCTRepository *)repositoryForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

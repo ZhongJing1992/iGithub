@@ -8,8 +8,7 @@
 
 #import "NetworkProfileViewController.h"
 #import "Macros.h"
-#import "Constants.h"
-#import "KeychainWrapper.h"
+#import "OauthUtility.h"
 #import "VcardView.h"
 #import "VcardStatsTableViewCell.h"
 #import "PopularReposTableViewCell.h"
@@ -45,10 +44,6 @@
     
 }
 
-- (void)viewDidLayoutSubviews {
-    
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -57,7 +52,6 @@
 
 - (void)updateViewConstraints {
     if (!self.didSetupConstraints) {
-        
         
         self.didSetupConstraints = YES;
     }
@@ -74,23 +68,6 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 45;
 }
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    if (section == 1) {
-//        UILabel *header = [[UILabel alloc] init];
-//        header.text = @"Popular repositories";
-//        header.textColor = UIColorFromHex(0x333333);
-//        header.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
-//        
-//        UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 17)];
-//        sectionHeaderView.backgroundColor = UIColorFromHex(0xF5F5F5);
-//        [sectionHeaderView addSubview:header];
-//        
-//        return sectionHeaderView;
-//    }
-//    
-//    return nil;
-//}
 
 #pragma mark - UITableViewDataSource
 
@@ -173,10 +150,8 @@
 
 - (void)fetchDataForVcard:(VcardView *)vcard {
     [vcard.spinner startAnimating];
-    
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-    RACSignal *userInfo = [client fetchUserInfo];
+
+    RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
     
     [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
         NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
@@ -195,10 +170,8 @@
 
 - (void)fetchDataForVcardStatsCell:(VcardStatsTableViewCell *)cell {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-    RACSignal *userInfo = [client fetchUserInfo];
+
+    RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
 
     [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
         cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)entity.followers];
@@ -213,9 +186,7 @@
 - (void)fetchDataForPopularRepos {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-    RACSignal *repositories = [client fetchUserRepositories];
+    RACSignal *repositories = [[OauthUtility authenticatedClient] fetchUserRepositories];
     
     NSArray * __block sortedArray;
     [[repositories collect] subscribeNext:^(OCTRepository *repository) {

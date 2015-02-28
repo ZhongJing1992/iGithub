@@ -7,8 +7,7 @@
 //
 
 #import "PopularRepositories.h"
-#import "Constants.h"
-#import "KeychainWrapper.h"
+#import "OauthUtility.h"
 
 #import <OctoKit/OctoKit.h>
 
@@ -28,9 +27,7 @@
 //}
 
 - (void)sortedRepoByStargazersCount {
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
-    OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
-    RACSignal *repositories = [client fetchUserRepositories];
+    RACSignal *repositories = [[OauthUtility authenticatedClient] fetchUserRepositories];
     
     NSArray * __block sortedArray;
     [[repositories collect] subscribeNext:^(OCTRepository *repository) {
