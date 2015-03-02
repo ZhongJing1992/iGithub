@@ -304,8 +304,8 @@
 		041034E21AA17FC60063DE5E /* NetworkProfile */ = {
 			isa = PBXGroup;
 			children = (
-				041034E31AA17FC60063DE5E /* Cell */,
 				041034EA1AA17FC60063DE5E /* HeaderView */,
+				041034E31AA17FC60063DE5E /* Cell */,
 				041034EF1AA17FC60063DE5E /* NetworkProfileViewController.h */,
 				041034F01AA17FC60063DE5E /* NetworkProfileViewController.m */,
 			);

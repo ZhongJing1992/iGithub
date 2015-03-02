@@ -1,10 +1,13 @@
 PODS:
   - JASidePanels (1.3.2)
+  - TTTAttributedLabel (1.13.2)
 
 DEPENDENCIES:
   - JASidePanels (~> 1.3)
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   JASidePanels: ca943907d88a0738c80755204c6098969d43e4e9
+  TTTAttributedLabel: 7c4592f9a806badb8b48dc634cb9800447c51594
 
 COCOAPODS: 0.35.0

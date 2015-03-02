@@ -93,10 +93,7 @@
     }
     
     [label sizeToFit];
-    CGPoint center = label.center;
-    center.x += 10 ;
-    center.y = view.center.y;
-    label.center = center;
+    label.center = view.center;
     
     [view addSubview:label];
 
@@ -134,7 +131,7 @@
         return self.popularRepos.count;
     }
     
-    return 3;
+    return 13;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
