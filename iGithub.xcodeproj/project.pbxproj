@@ -226,8 +226,8 @@
 		041034E71AA17FC60063DE5E /* PopularReposTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularReposTableViewCell.m; sourceTree = "<group>"; };
 		041034E81AA17FC60063DE5E /* VcardStatsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardStatsTableViewCell.h; sourceTree = "<group>"; };
 		041034E91AA17FC60063DE5E /* VcardStatsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardStatsTableViewCell.m; sourceTree = "<group>"; };
-		041034EB1AA17FC60063DE5E /* VcardStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardStats.h; sourceTree = "<group>"; };
-		041034EC1AA17FC60063DE5E /* VcardStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardStats.m; sourceTree = "<group>"; };
+		041034EB1AA17FC60063DE5E /* VcardStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardStats.h; path = ../HeaderView/VcardStats.h; sourceTree = "<group>"; };
+		041034EC1AA17FC60063DE5E /* VcardStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardStats.m; path = ../HeaderView/VcardStats.m; sourceTree = "<group>"; };
 		041034ED1AA17FC60063DE5E /* VcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardView.h; sourceTree = "<group>"; };
 		041034EE1AA17FC60063DE5E /* VcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardView.m; sourceTree = "<group>"; };
 		041034EF1AA17FC60063DE5E /* NetworkProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkProfileViewController.h; sourceTree = "<group>"; };
@@ -319,6 +319,8 @@
 				041034E51AA17FC60063DE5E /* PopularRepositories.m */,
 				041034E61AA17FC60063DE5E /* PopularReposTableViewCell.h */,
 				041034E71AA17FC60063DE5E /* PopularReposTableViewCell.m */,
+				041034EB1AA17FC60063DE5E /* VcardStats.h */,
+				041034EC1AA17FC60063DE5E /* VcardStats.m */,
 				041034E81AA17FC60063DE5E /* VcardStatsTableViewCell.h */,
 				041034E91AA17FC60063DE5E /* VcardStatsTableViewCell.m */,
 			);
@@ -328,8 +330,6 @@
 		041034EA1AA17FC60063DE5E /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				041034EB1AA17FC60063DE5E /* VcardStats.h */,
-				041034EC1AA17FC60063DE5E /* VcardStats.m */,
 				041034ED1AA17FC60063DE5E /* VcardView.h */,
 				041034EE1AA17FC60063DE5E /* VcardView.m */,
 			);

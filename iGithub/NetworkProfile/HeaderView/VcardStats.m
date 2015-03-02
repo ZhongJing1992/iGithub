@@ -40,30 +40,40 @@
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(40, 30);
+    return CGSizeMake(40, 25);
 }
 
 - (void)updateConstraints {
     if (!self.didSetupConstraints) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.vcardStatCountLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.f constant:0.f]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.vcardStatCountLabel
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1.f
+                                                          constant:0.f]];
 
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_vcardStatCountLabel, _textMutedLabel);
-        [self.vcardStatCountLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_vcardStatCountLabel][_textMutedLabel]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:viewsDictionary]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_vcardStatCountLabel]|" options:kNilOptions metrics:nil views:viewsDictionary]];
+
+        [self.textMutedLabel setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_vcardStatCountLabel][_textMutedLabel]|"
+                                                                     options:NSLayoutFormatAlignAllCenterX
+                                                                     metrics:nil
+                                                                       views:viewsDictionary]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_vcardStatCountLabel]|"
+                                                                     options:kNilOptions
+                                                                     metrics:nil
+                                                                       views:viewsDictionary]];
         self.didSetupConstraints = YES;
     }
-    
-    [super updateConstraints];
 
+    [super updateConstraints];
 }
 
 - (void)setupVcardStatCountLabel {
     _vcardStatCountLabel = [[UILabel alloc] init];
     _vcardStatCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _vcardStatCountLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
-    _vcardStatCountLabel.text = @"0";
-    _vcardStatCountLabel.numberOfLines = 0;
+    _vcardStatCountLabel.numberOfLines = 1;
     _vcardStatCountLabel.textAlignment = NSTextAlignmentCenter;
     _vcardStatCountLabel.textColor = UIColorFromHex(0x4183C4);
     [self addSubview:_vcardStatCountLabel];;
@@ -74,8 +84,7 @@
     _textMutedLabel = [[UILabel alloc] init];
     _textMutedLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _textMutedLabel.font = [UIFont fontWithName:@"STHeitiSC-Light" size:8];
-    _textMutedLabel.text = @"0";
-    _textMutedLabel.numberOfLines = 0;
+    _textMutedLabel.numberOfLines = 1;
     _textMutedLabel.textAlignment = NSTextAlignmentCenter;
     _textMutedLabel.textColor = UIColorFromHex(0x888888);
     [self addSubview:_textMutedLabel];
