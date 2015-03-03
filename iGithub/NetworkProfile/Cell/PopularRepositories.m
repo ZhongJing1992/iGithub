@@ -21,11 +21,6 @@
     return [self.popularRepos objectAtIndex:indexPath.row];
 }
 
-//+ (NSArray *)popularRepositoriesWithSortedByStargazersCount {
-//    NSArray *sortedRepo = [self sortedRepoByStargazersCount];
-//    return [sortedRepo objectsAtIndexes:[[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, 4)]];
-//}
-
 - (void)sortedRepoByStargazersCount {
     RACSignal *repositories = [[OauthUtility authenticatedClient] fetchUserRepositories];
     

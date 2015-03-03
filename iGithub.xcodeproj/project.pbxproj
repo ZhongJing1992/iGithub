@@ -17,6 +17,8 @@
 		041034F81AA17FC60063DE5E /* NetworkProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041034F01AA17FC60063DE5E /* NetworkProfileViewController.m */; };
 		04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309B1A830FF700F9578E /* LeftViewController.m */; };
 		04B5309F1A8345A000F9578E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309E1A8345A000F9578E /* NavigationController.m */; };
+		04D8305B1AA459E400E22B1E /* GitHubUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8305A1AA459E400E22B1E /* GitHubUserStore.m */; };
+		04D830701AA55D4800E22B1E /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8306F1AA55D4800E22B1E /* MenuTableViewCell.m */; };
 		04F4726D1A8E1057002BCCA4 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B5311B1A84890A00F9578E /* OctoKit.framework */; };
 		04F4726E1A8E1057002BCCA4 /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04B5311B1A84890A00F9578E /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04F472791A8E108E002BCCA4 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B531291A84893200F9578E /* ReactiveCocoa.framework */; };
@@ -243,6 +245,10 @@
 		04B530BC1A84853400F9578E /* OctoKitDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKitDependencies.xcodeproj; path = octokit.objc/External/OctoKitDependencies/OctoKitDependencies.xcodeproj; sourceTree = "<group>"; };
 		04B530BF1A84853400F9578E /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = octokit.objc/Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		04B530C21A84853400F9578E /* Mantle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantle.xcodeproj; path = octokit.objc/Carthage/Checkouts/Mantle/Mantle.xcodeproj; sourceTree = "<group>"; };
+		04D830591AA459E400E22B1E /* GitHubUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUserStore.h; sourceTree = "<group>"; };
+		04D8305A1AA459E400E22B1E /* GitHubUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubUserStore.m; sourceTree = "<group>"; };
+		04D8306E1AA55D4800E22B1E /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		04D8306F1AA55D4800E22B1E /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		2E966C87F4E44D16777301AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6C05C01A1B511A005B5C32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
@@ -291,10 +297,10 @@
 		041034DB1AA17FC60063DE5E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				041034DF1AA17FC60063DE5E /* Macros.h */,
 				041034DC1AA17FC60063DE5E /* Constants.h */,
 				041034DD1AA17FC60063DE5E /* KeychainWrapper.h */,
 				041034DE1AA17FC60063DE5E /* KeychainWrapper.m */,
-				041034DF1AA17FC60063DE5E /* Macros.h */,
 				041034E01AA17FC60063DE5E /* OauthUtility.h */,
 				041034E11AA17FC60063DE5E /* OauthUtility.m */,
 			);
@@ -437,6 +443,10 @@
 				04B5309E1A8345A000F9578E /* NavigationController.m */,
 				04B5309A1A830FF700F9578E /* LeftViewController.h */,
 				04B5309B1A830FF700F9578E /* LeftViewController.m */,
+				04D8306E1AA55D4800E22B1E /* MenuTableViewCell.h */,
+				04D8306F1AA55D4800E22B1E /* MenuTableViewCell.m */,
+				04D830591AA459E400E22B1E /* GitHubUserStore.h */,
+				04D8305A1AA459E400E22B1E /* GitHubUserStore.m */,
 				ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */,
 				ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */,
 				ABFFD1721A19983D0063C74C /* Images.xcassets */,
@@ -775,9 +785,11 @@
 				041034F81AA17FC60063DE5E /* NetworkProfileViewController.m in Sources */,
 				04B5309C1A830FF700F9578E /* LeftViewController.m in Sources */,
 				041034F11AA17FC60063DE5E /* KeychainWrapper.m in Sources */,
+				04D8305B1AA459E400E22B1E /* GitHubUserStore.m in Sources */,
 				041034F41AA17FC60063DE5E /* PopularReposTableViewCell.m in Sources */,
 				041034F61AA17FC60063DE5E /* VcardStats.m in Sources */,
 				041034F51AA17FC60063DE5E /* VcardStatsTableViewCell.m in Sources */,
+				04D830701AA55D4800E22B1E /* MenuTableViewCell.m in Sources */,
 				041034F71AA17FC60063DE5E /* VcardView.m in Sources */,
 				04B5309F1A8345A000F9578E /* NavigationController.m in Sources */,
 				041034F21AA17FC60063DE5E /* OauthUtility.m in Sources */,

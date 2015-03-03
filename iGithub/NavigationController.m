@@ -7,6 +7,7 @@
 //
 
 #import "NavigationController.h"
+#import "Macros.h"
 
 @interface NavigationController ()
 
@@ -29,6 +30,7 @@
     NSDictionary *navBarTitleTextAtrributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationBar.titleTextAttributes = navBarTitleTextAtrributes;
     self.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationBar.barTintColor = UIColorFromHex(0x183B6D);
 }
 
 - (void)didReceiveMemoryWarning {

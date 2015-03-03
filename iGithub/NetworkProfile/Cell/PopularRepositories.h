@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <OctoKit/OctoKit.h>
+#import "PopularReposTableViewCell.h"
 
 @interface PopularRepositories : NSObject
 @property (nonatomic, strong) NSArray *popularRepos;
-- (OCTRepository *)repositoryForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

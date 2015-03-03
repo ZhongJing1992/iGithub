@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "KeychainWrapper.h"
 #import "LeftViewController.h"
+#import "NewsTableViewController.h"
 #import "NetworkProfileViewController.h"
 #import "NavigationController.h"
 
@@ -27,10 +28,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
     if (token) {
-        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NetworkProfileViewController alloc] initWithStyle:UITableViewStylePlain]];
-        navController.navigationBar.barTintColor = UIColorFromHex(0x183B6D);
+        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NewsTableViewController alloc] init]];
+        
         JASidePanelController *jaSidePanelController = [[JASidePanelController alloc] init];
-        jaSidePanelController.leftPanel = [[LeftViewController alloc] init];
+        jaSidePanelController.leftPanel = [[LeftViewController alloc] initWithStyle:UITableViewStylePlain];
         jaSidePanelController.centerPanel = navController;
         
         self.window.rootViewController = jaSidePanelController;

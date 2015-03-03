@@ -19,13 +19,13 @@
 @interface NetworkProfileViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, strong) NSArray *popularRepos;
+@property (nonatomic, strong) OCTEntity *entity;
 @end
 
 @implementation NetworkProfileViewController
 
-- (id)init {
+- (instancetype)init {
     if (self = [super init]) {
-        self.
         self.title = @"Network Profile";
     }
     
@@ -41,23 +41,18 @@
     self.tableView.tableHeaderView = tableHeaderView;
     
     [self fetchDataForVcard:tableHeaderView];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
     [self fetchDataForPopularRepos];
+    [self fetchOCTEntity];
 }
 
-- (void)updateViewConstraints {
-    if (!self.didSetupConstraints) {
-        
-        self.didSetupConstraints = YES;
-    }
-    
-    [super updateViewConstraints];
-}
+//- (void)updateViewConstraints {
+//    if (!self.didSetupConstraints) {
+//        
+//        self.didSetupConstraints = YES;
+//    }
+//    
+//    [super updateViewConstraints];
+//}
 
 #pragma mark - UITableViewDelegate
 
@@ -84,7 +79,6 @@
     UILabel *label = [[UILabel alloc] init];
     label.textColor = UIColorFromHex(0x333333);
     label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12];
-//    label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
 
     if (section == 1) {
         label.text = @"Popular repositories";
@@ -143,7 +137,8 @@
                 
             }
             
-            [self fetchDataForVcardStatsCell:cell];
+            cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.followers];
+            cell.following.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.following];
             
             return cell;
         }
@@ -203,27 +198,26 @@
     }];
 }
 
-- (void)fetchDataForVcardStatsCell:(VcardStatsTableViewCell *)cell {
+- (void)fetchOCTEntity {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
     RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
 
     [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
-        cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)entity.followers];
-        cell.following.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)entity.following];
+        self.entity = entity;
     } error:^(NSError *error) {
         NSLog(@"Error");
     } completed:^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self.tableView reloadData];
     }];
 }
 
 - (void)fetchDataForPopularRepos {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    RACSignal *repositories = [[OauthUtility authenticatedClient] fetchUserRepositories];
-    
     NSArray * __block sortedArray;
+    RACSignal *repositories = [[OauthUtility authenticatedClient] fetchUserRepositories];
     [[repositories collect] subscribeNext:^(OCTRepository *repository) {
         sortedArray = [(NSArray *)repository sortedArrayUsingComparator:^NSComparisonResult(OCTRepository *repo1, OCTRepository *repo2) {
             if (repo1.stargazersCount > repo2.stargazersCount) {

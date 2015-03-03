@@ -25,6 +25,12 @@
     return self;
 }
 
+- (void)settupViews {
+    [self setupFollowers];
+    [self setupStars];
+    [self setupFollowing];
+}
+
 - (void)setupFollowers {
     _followers = [[VcardStats alloc] initWithFrame:CGRectZero];
     _followers.translatesAutoresizingMaskIntoConstraints = NO;
@@ -76,12 +82,6 @@
     }
     
     [super updateConstraints];
-}
-
-- (void)settupViews {
-    [self setupFollowers];
-    [self setupStars];
-    [self setupFollowing];
 }
 
 @end
