@@ -43,7 +43,7 @@
 - (void)setupStars {
     _stars = [[VcardStats alloc] initWithFrame:CGRectZero];
     _stars.translatesAutoresizingMaskIntoConstraints = NO;
-    _stars.vcardStatCount = @"289";
+    _stars.vcardStatCount = @"-";
     _stars.textMuted = @"Starred";
     [self.contentView addSubview:_stars];
 
@@ -69,7 +69,8 @@
                                                                       constant:0.f]];
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_followers, _stars, _following);
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[_stars]-8-|"
+        
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_stars]-|"
                                                                                  options:kNilOptions
                                                                                  metrics:nil
                                                                                    views:viewsDictionary]];

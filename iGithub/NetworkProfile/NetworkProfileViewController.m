@@ -17,6 +17,7 @@
 #import <OctoKit/Octokit.h>
 
 @interface NetworkProfileViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, strong) NSArray *popularRepos;
 @property (nonatomic, strong) OCTEntity *entity;
@@ -101,7 +102,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -137,8 +138,10 @@
                 
             }
             
-            cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.followers];
-            cell.following.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.following];
+            if (self.entity) {
+                cell.followers.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.followers];
+                cell.following.vcardStatCount = [NSString stringWithFormat:@"%lu", (unsigned long)self.entity.following];
+            }
             
             return cell;
         }

@@ -29,12 +29,14 @@
 		04CAB38F1AA6B6EB00737E10 /* GitHubUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB38A1AA6B6EB00737E10 /* GitHubUserStore.m */; };
 		04CAB3901AA6B6EB00737E10 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB38C1AA6B6EB00737E10 /* LeftViewController.m */; };
 		04CAB3911AA6B6EB00737E10 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB38E1AA6B6EB00737E10 /* MenuTableViewCell.m */; };
+		04CAB3951AA6B81500737E10 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB3941AA6B81500737E10 /* LoginViewController.m */; };
+		04CAB39A1AA6B9FF00737E10 /* NewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */; };
+		04CAB39B1AA6B9FF00737E10 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */; };
 		620E18F5A293B086A95B188C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E966C87F4E44D16777301AE /* libPods.a */; };
 		AB6C05C11A1B511A005B5C32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6C05C01A1B511A005B5C32 /* Security.framework */; };
-		ABC19DB51A1AEDB500D94561 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */; };
+		ABC19DB51A1AEDB500D94561 /* NewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC19DB41A1AEDB500D94561 /* NewsFeedTableViewController.m */; };
 		ABFFD1681A19983D0063C74C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD1671A19983D0063C74C /* main.m */; };
 		ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD16A1A19983D0063C74C /* AppDelegate.m */; };
-		ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD16D1A19983D0063C74C /* LoginViewController.m */; };
 		ABFFD1711A19983D0063C74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFFD16F1A19983D0063C74C /* Main.storyboard */; };
 		ABFFD1731A19983D0063C74C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFFD1721A19983D0063C74C /* Images.xcassets */; };
 		ABFFD1821A19983D0063C74C /* iGithubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFFD1811A19983D0063C74C /* iGithubTests.m */; };
@@ -246,17 +248,20 @@
 		04CAB38C1AA6B6EB00737E10 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		04CAB38D1AA6B6EB00737E10 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		04CAB38E1AA6B6EB00737E10 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		04CAB3931AA6B81500737E10 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		04CAB3941AA6B81500737E10 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		04CAB3971AA6B9FF00737E10 /* NewsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedTableViewCell.h; sourceTree = "<group>"; };
+		04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedTableViewCell.m; sourceTree = "<group>"; };
+		04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		2E966C87F4E44D16777301AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6C05C01A1B511A005B5C32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
-		ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		ABC19DB31A1AEDB500D94561 /* NewsFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedTableViewController.h; sourceTree = "<group>"; };
+		ABC19DB41A1AEDB500D94561 /* NewsFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedTableViewController.m; sourceTree = "<group>"; };
 		ABFFD1621A19983D0063C74C /* iGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFFD1661A19983D0063C74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABFFD1671A19983D0063C74C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ABFFD1691A19983D0063C74C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFFD16A1A19983D0063C74C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ABFFD16C1A19983D0063C74C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		ABFFD16D1A19983D0063C74C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		ABFFD1701A19983D0063C74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABFFD1721A19983D0063C74C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ABFFD17B1A19983D0063C74C /* iGithubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iGithubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,6 +412,27 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		04CAB3921AA6B81500737E10 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04CAB3931AA6B81500737E10 /* LoginViewController.h */,
+				04CAB3941AA6B81500737E10 /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		04CAB3961AA6B91F00737E10 /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				ABC19DB31A1AEDB500D94561 /* NewsFeedTableViewController.h */,
+				ABC19DB41A1AEDB500D94561 /* NewsFeedTableViewController.m */,
+				04CAB3971AA6B9FF00737E10 /* NewsFeedTableViewCell.h */,
+				04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */,
+				04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */,
+			);
+			path = NewsFeed;
+			sourceTree = "<group>";
+		};
 		1256B064FD56A751A74C8977 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,12 +469,10 @@
 				041034DB1AA17FC60063DE5E /* Core */,
 				041034E21AA17FC60063DE5E /* NetworkProfile */,
 				04CAB3881AA6B6EB00737E10 /* SideMenu */,
-				ABFFD16C1A19983D0063C74C /* LoginViewController.h */,
-				ABFFD16D1A19983D0063C74C /* LoginViewController.m */,
+				04CAB3921AA6B81500737E10 /* Login */,
+				04CAB3961AA6B91F00737E10 /* NewsFeed */,
 				04B5309D1A8345A000F9578E /* NavigationController.h */,
 				04B5309E1A8345A000F9578E /* NavigationController.m */,
-				ABC19DB31A1AEDB500D94561 /* NewsTableViewController.h */,
-				ABC19DB41A1AEDB500D94561 /* NewsTableViewController.m */,
 				ABFFD1691A19983D0063C74C /* AppDelegate.h */,
 				ABFFD16A1A19983D0063C74C /* AppDelegate.m */,
 				ABFFD1721A19983D0063C74C /* Images.xcassets */,
@@ -717,6 +741,7 @@
 			files = (
 				ABFFD1711A19983D0063C74C /* Main.storyboard in Resources */,
 				ABFFD1731A19983D0063C74C /* Images.xcassets in Resources */,
+				04CAB39B1AA6B9FF00737E10 /* NewsFeedTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,8 +806,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABC19DB51A1AEDB500D94561 /* NewsTableViewController.m in Sources */,
-				ABFFD16E1A19983D0063C74C /* LoginViewController.m in Sources */,
+				ABC19DB51A1AEDB500D94561 /* NewsFeedTableViewController.m in Sources */,
+				04CAB39A1AA6B9FF00737E10 /* NewsFeedTableViewCell.m in Sources */,
 				ABFFD16B1A19983D0063C74C /* AppDelegate.m in Sources */,
 				041034F81AA17FC60063DE5E /* NetworkProfileViewController.m in Sources */,
 				041034F11AA17FC60063DE5E /* KeychainWrapper.m in Sources */,
@@ -790,6 +815,7 @@
 				04CAB3911AA6B6EB00737E10 /* MenuTableViewCell.m in Sources */,
 				04CAB3901AA6B6EB00737E10 /* LeftViewController.m in Sources */,
 				041034F61AA17FC60063DE5E /* VcardStats.m in Sources */,
+				04CAB3951AA6B81500737E10 /* LoginViewController.m in Sources */,
 				04CAB38F1AA6B6EB00737E10 /* GitHubUserStore.m in Sources */,
 				041034F51AA17FC60063DE5E /* VcardStatsTableViewCell.m in Sources */,
 				041034F71AA17FC60063DE5E /* VcardView.m in Sources */,

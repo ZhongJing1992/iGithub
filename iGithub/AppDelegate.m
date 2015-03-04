@@ -12,7 +12,7 @@
 #import "Constants.h"
 #import "KeychainWrapper.h"
 #import "LeftViewController.h"
-#import "NewsTableViewController.h"
+#import "NewsFeedTableViewController.h"
 #import "NetworkProfileViewController.h"
 #import "NavigationController.h"
 
@@ -28,7 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
     if (token) {
-        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NewsTableViewController alloc] init]];
+        NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NewsFeedTableViewController alloc] init]];
         
         JASidePanelController *jaSidePanelController = [[JASidePanelController alloc] init];
         jaSidePanelController.leftPanel = [[LeftViewController alloc] initWithStyle:UITableViewStylePlain];

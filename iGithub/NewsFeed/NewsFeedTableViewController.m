@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Xiaoyu. All rights reserved.
 //
 
-#import "NewsTableViewController.h"
+#import "NewsFeedTableViewController.h"
 
-@interface NewsTableViewController ()
+@interface NewsFeedTableViewController ()
 
 @end
 
-@implementation NewsTableViewController
+@implementation NewsFeedTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -20,6 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
         [self setupVcardStatCountLabel];
         [self setupTextMutedLabel];
     }
@@ -40,7 +41,7 @@
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(40, 25);
+    return CGSizeMake(40, 30);
 }
 
 - (void)updateConstraints {
@@ -54,7 +55,6 @@
 
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_vcardStatCountLabel, _textMutedLabel);
 
-        [self.textMutedLabel setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_vcardStatCountLabel][_textMutedLabel]|"
                                                                      options:NSLayoutFormatAlignAllCenterX
                                                                      metrics:nil
