@@ -15,6 +15,7 @@
 		041034F61AA17FC60063DE5E /* VcardStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 041034EC1AA17FC60063DE5E /* VcardStats.m */; };
 		041034F71AA17FC60063DE5E /* VcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041034EE1AA17FC60063DE5E /* VcardView.m */; };
 		041034F81AA17FC60063DE5E /* NetworkProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041034F01AA17FC60063DE5E /* NetworkProfileViewController.m */; };
+		0455DC5B1AA948E900F0EF3D /* NewsFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0455DC5A1AA948E900F0EF3D /* NewsFeedDataSource.m */; };
 		04B5309F1A8345A000F9578E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5309E1A8345A000F9578E /* NavigationController.m */; };
 		04CAB3731AA6B57000737E10 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAB3321AA6B4B800737E10 /* OctoKit.framework */; };
 		04CAB3741AA6B57000737E10 /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04CAB3321AA6B4B800737E10 /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,6 +33,7 @@
 		04CAB3951AA6B81500737E10 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB3941AA6B81500737E10 /* LoginViewController.m */; };
 		04CAB39A1AA6B9FF00737E10 /* NewsFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */; };
 		04CAB39B1AA6B9FF00737E10 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */; };
+		04CAB3AC1AA6E6EF00737E10 /* MenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAB3AB1AA6E6EF00737E10 /* MenuDataSource.m */; };
 		620E18F5A293B086A95B188C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E966C87F4E44D16777301AE /* libPods.a */; };
 		AB6C05C11A1B511A005B5C32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6C05C01A1B511A005B5C32 /* Security.framework */; };
 		ABC19DB51A1AEDB500D94561 /* NewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC19DB41A1AEDB500D94561 /* NewsFeedTableViewController.m */; };
@@ -236,6 +238,8 @@
 		041034EE1AA17FC60063DE5E /* VcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardView.m; sourceTree = "<group>"; };
 		041034EF1AA17FC60063DE5E /* NetworkProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkProfileViewController.h; sourceTree = "<group>"; };
 		041034F01AA17FC60063DE5E /* NetworkProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkProfileViewController.m; sourceTree = "<group>"; };
+		0455DC591AA948E900F0EF3D /* NewsFeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedDataSource.h; sourceTree = "<group>"; };
+		0455DC5A1AA948E900F0EF3D /* NewsFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedDataSource.m; sourceTree = "<group>"; };
 		04B5309D1A8345A000F9578E /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		04B5309E1A8345A000F9578E /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		04CAB3251AA6B4B800737E10 /* OctoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKit.xcodeproj; path = octokit.objc/OctoKit.xcodeproj; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 		04CAB3971AA6B9FF00737E10 /* NewsFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedTableViewCell.h; sourceTree = "<group>"; };
 		04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedTableViewCell.m; sourceTree = "<group>"; };
 		04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
+		04CAB3AA1AA6E6EF00737E10 /* MenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDataSource.h; sourceTree = "<group>"; };
+		04CAB3AB1AA6E6EF00737E10 /* MenuDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuDataSource.m; sourceTree = "<group>"; };
 		2E966C87F4E44D16777301AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6C05C01A1B511A005B5C32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ABC19DB31A1AEDB500D94561 /* NewsFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedTableViewController.h; sourceTree = "<group>"; };
@@ -402,12 +408,13 @@
 		04CAB3881AA6B6EB00737E10 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				04CAB3AD1AA6EC4600737E10 /* Cell */,
 				04CAB3891AA6B6EB00737E10 /* GitHubUserStore.h */,
 				04CAB38A1AA6B6EB00737E10 /* GitHubUserStore.m */,
 				04CAB38B1AA6B6EB00737E10 /* LeftViewController.h */,
 				04CAB38C1AA6B6EB00737E10 /* LeftViewController.m */,
-				04CAB38D1AA6B6EB00737E10 /* MenuTableViewCell.h */,
-				04CAB38E1AA6B6EB00737E10 /* MenuTableViewCell.m */,
+				04CAB3AA1AA6E6EF00737E10 /* MenuDataSource.h */,
+				04CAB3AB1AA6E6EF00737E10 /* MenuDataSource.m */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -426,11 +433,22 @@
 			children = (
 				ABC19DB31A1AEDB500D94561 /* NewsFeedTableViewController.h */,
 				ABC19DB41A1AEDB500D94561 /* NewsFeedTableViewController.m */,
+				0455DC591AA948E900F0EF3D /* NewsFeedDataSource.h */,
+				0455DC5A1AA948E900F0EF3D /* NewsFeedDataSource.m */,
 				04CAB3971AA6B9FF00737E10 /* NewsFeedTableViewCell.h */,
 				04CAB3981AA6B9FF00737E10 /* NewsFeedTableViewCell.m */,
 				04CAB3991AA6B9FF00737E10 /* NewsFeedTableViewCell.xib */,
 			);
 			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		04CAB3AD1AA6EC4600737E10 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04CAB38D1AA6B6EB00737E10 /* MenuTableViewCell.h */,
+				04CAB38E1AA6B6EB00737E10 /* MenuTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1256B064FD56A751A74C8977 /* Frameworks */ = {
@@ -815,12 +833,14 @@
 				04CAB3911AA6B6EB00737E10 /* MenuTableViewCell.m in Sources */,
 				04CAB3901AA6B6EB00737E10 /* LeftViewController.m in Sources */,
 				041034F61AA17FC60063DE5E /* VcardStats.m in Sources */,
+				04CAB3AC1AA6E6EF00737E10 /* MenuDataSource.m in Sources */,
 				04CAB3951AA6B81500737E10 /* LoginViewController.m in Sources */,
 				04CAB38F1AA6B6EB00737E10 /* GitHubUserStore.m in Sources */,
 				041034F51AA17FC60063DE5E /* VcardStatsTableViewCell.m in Sources */,
 				041034F71AA17FC60063DE5E /* VcardView.m in Sources */,
 				04B5309F1A8345A000F9578E /* NavigationController.m in Sources */,
 				041034F21AA17FC60063DE5E /* OauthUtility.m in Sources */,
+				0455DC5B1AA948E900F0EF3D /* NewsFeedDataSource.m in Sources */,
 				041034F31AA17FC60063DE5E /* PopularRepositories.m in Sources */,
 				ABFFD1681A19983D0063C74C /* main.m in Sources */,
 			);

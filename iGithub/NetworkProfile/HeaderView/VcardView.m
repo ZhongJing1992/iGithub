@@ -110,7 +110,7 @@
     self.avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.avatarImageView.layer.masksToBounds = YES;
     self.avatarImageView.layer.cornerRadius = 3.0f;
-    self.avatarImageView.backgroundColor = [UIColor whiteColor];
+    self.avatarImageView.image = [UIImage imageNamed:@"NetworkProfilePictureViewBlankProfileSquare"];
     [self addSubview:self.avatarImageView];
     
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];

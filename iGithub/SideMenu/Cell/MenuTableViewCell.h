@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuTableViewCell : UITableViewCell
-@property (strong, nonatomic) UIImageView *avatarImageView;
-@property (strong, nonatomic) UILabel *loginNameLabel;
+@property (strong, nonatomic) UIImageView *menuImageView;
+@property (strong, nonatomic) UILabel *menuLabel;
 @end

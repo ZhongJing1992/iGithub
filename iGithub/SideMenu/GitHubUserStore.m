@@ -19,11 +19,11 @@
     [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
         NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
         UIImage *avatarImage = [UIImage imageWithData:avatarData];
-        cell.avatarImageView.image = avatarImage;
-        cell.avatarImageView.layer.masksToBounds = YES;
-        cell.avatarImageView.layer.cornerRadius = 3;
-        cell.loginNameLabel.text = entity.login;
-        cell.loginNameLabel.textColor = [UIColor whiteColor];
+        cell.menuImageView.image = avatarImage;
+        cell.menuImageView.layer.masksToBounds = YES;
+        cell.menuImageView.layer.cornerRadius = 3;
+        cell.menuLabel.text = entity.login;
+        cell.menuLabel.textColor = [UIColor whiteColor];
     } error:^(NSError *error) {
         
     } completed:^{

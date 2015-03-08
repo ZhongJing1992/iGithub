@@ -29,17 +29,18 @@
 - (IBAction)signIn:(UIButton *)sender {
     [[OCTClient signInToServerUsingWebBrowser:OCTServer.dotComServer scopes:OCTClientAuthorizationScopesUser] subscribeNext:^(OCTClient *authenticatedClient) {
         [KeychainWrapper setValue:authenticatedClient.token forIdentifier:kAccessTokenKey];
-        [KeychainWrapper setValue:authenticatedClient.user.login forIdentifier:kLogin];
+        [KeychainWrapper setValue:authenticatedClient.user.rawLogin forIdentifier:kRawLogin];
         NSAssert(authenticatedClient.token, @"NO Token!");
-        NSLog(@"login:%@ token:%@", [KeychainWrapper valueForIdentifier:kLogin], [KeychainWrapper valueForIdentifier:kAccessTokenKey]);
+        NSLog(@"login:%@ token:%@", [KeychainWrapper valueForIdentifier:kRawLogin], [KeychainWrapper valueForIdentifier:kAccessTokenKey]);
         
+    } error:^(NSError *error) {
+        // Authentication failed.
+        NSLog(@"failed!");
+    } completed:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             JASidePanelController *jaSidePanelController = [[JASidePanelController alloc] init];
             [UIApplication sharedApplication].keyWindow.rootViewController = jaSidePanelController;
         });
-    } error:^(NSError *error) {
-        // Authentication failed.
-        NSLog(@"failed!");
     }];
 }
 

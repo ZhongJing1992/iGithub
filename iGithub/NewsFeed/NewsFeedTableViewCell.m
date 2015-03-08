@@ -8,10 +8,22 @@
 
 #import "NewsFeedTableViewCell.h"
 
+@interface NewsFeedTableViewCell ()
+
+@end
+
 @implementation NewsFeedTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    
+    _avatar.layer.masksToBounds = YES;
+    _avatar.layer.cornerRadius = 3;
+    
+}
+
+- (void)layoutSubviews {
+    [self.login sizeToFit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

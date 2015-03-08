@@ -10,6 +10,7 @@
 #import <JASidePanelController.h>
 #import "NavigationController.h"
 #import "NetworkProfileViewController.h"
+#import "NewsFeedTableViewController.h"
 #import "MenuTableViewCell.h"
 #import "Macros.h"
 #import "OauthUtility.h"
@@ -46,6 +47,12 @@
         JASidePanelController *ja = (JASidePanelController *)[UIApplication sharedApplication].keyWindow.rootViewController;
         [ja setCenterPanel:nav];
     }
+    
+    if (indexPath.row == 1) {
+        NavigationController *nav = [[NavigationController alloc] initWithRootViewController:[[NewsFeedTableViewController alloc] init]];
+        JASidePanelController *ja = (JASidePanelController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        [ja setCenterPanel:nav];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -74,10 +81,17 @@
         }
         
         if (indexPath.row == 0) {
-            NSData *avatarData = [[NSData alloc] initWithContentsOfURL:self.entity.avatarURL];
-            UIImage *avatarImage = [UIImage imageWithData:avatarData];
-            cell.avatarImageView.image = avatarImage;
-            cell.loginNameLabel.text = self.entity.login;
+            if (self.entity) {
+                NSData *avatarData = [[NSData alloc] initWithContentsOfURL:self.entity.avatarURL];
+                UIImage *avatarImage = [UIImage imageWithData:avatarData];
+                cell.menuImageView.image = avatarImage;
+                cell.menuLabel.text = self.entity.login;
+            }
+        }
+        
+        if (indexPath.row == 1) {
+            cell.menuImageView.image = [UIImage imageNamed:@"NewsFeed"];
+            cell.menuLabel.text = @"Feed";
         }
         
         return cell;
@@ -90,13 +104,15 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
-    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+    [userInfo subscribeNext:^(OCTEntity *entity) {
         self.entity = entity;
     } error:^(NSError *error) {
         NSLog(@"Error");
     } completed:^{
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [self.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [self.tableView reloadData];
+        });
     }];
 }
 

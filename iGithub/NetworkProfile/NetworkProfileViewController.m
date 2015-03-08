@@ -41,19 +41,9 @@
     VcardView *tableHeaderView = [[VcardView alloc] initWithFrame:frame];
     self.tableView.tableHeaderView = tableHeaderView;
     
-    [self fetchDataForVcard:tableHeaderView];
-    [self fetchDataForPopularRepos];
     [self fetchOCTEntity];
+    [self fetchDataForPopularRepos];
 }
-
-//- (void)updateViewConstraints {
-//    if (!self.didSetupConstraints) {
-//        
-//        self.didSetupConstraints = YES;
-//    }
-//    
-//    [super updateViewConstraints];
-//}
 
 #pragma mark - UITableViewDelegate
 
@@ -181,24 +171,16 @@
     
 }
 
-- (void)fetchDataForVcard:(VcardView *)vcard {
-    [vcard.spinner startAnimating];
-
-    RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
-    
-    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
-        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:entity.avatarURL];
+- (void)setupVcard:(VcardView *)vcard {
+    if (self.entity) {
+        NSData *avatarData = [[NSData alloc] initWithContentsOfURL:self.entity.avatarURL];
         UIImage *avatarImage = [UIImage imageWithData:avatarData];
         
         vcard.avatarImage = avatarImage;
-        vcard.login = entity.login;
-        vcard.location = entity.location;
-        vcard.blog = entity.blog;
-    } error:^(NSError *error) {
-        [vcard.spinner stopAnimating];
-    } completed:^{
-        [vcard.spinner stopAnimating];
-    }];
+        vcard.login = self.entity.login;
+        vcard.location = self.entity.location;
+        vcard.blog = self.entity.blog;
+    }
 }
 
 - (void)fetchOCTEntity {
@@ -206,13 +188,16 @@
 
     RACSignal *userInfo = [[OauthUtility authenticatedClient] fetchUserInfo];
 
-    [[userInfo deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(OCTEntity *entity) {
+    [userInfo subscribeNext:^(OCTEntity *entity) {
         self.entity = entity;
     } error:^(NSError *error) {
-        NSLog(@"Error");
+
     } completed:^{
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [self.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setupVcard:(VcardView *)self.tableView.tableHeaderView];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [self.tableView reloadData];
+        });
     }];
 }
 

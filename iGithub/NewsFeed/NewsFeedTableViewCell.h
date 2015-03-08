@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsFeedTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *login;
 @end

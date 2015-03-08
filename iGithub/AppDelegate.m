@@ -26,6 +26,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    [KeychainWrapper removeValueForIdentifier:kAccessTokenKey];
+//    [KeychainWrapper removeValueForIdentifier:kRawLogin];
     NSString *token = [KeychainWrapper valueForIdentifier:kAccessTokenKey];
     if (token) {
         NavigationController *navController = [[NavigationController alloc] initWithRootViewController:[[NewsFeedTableViewController alloc] init]];

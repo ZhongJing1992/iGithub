@@ -13,7 +13,7 @@
 @implementation OauthUtility
 
 + (OCTClient *)authenticatedClient {
-    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kLogin] server:OCTServer.dotComServer];
+    OCTUser *user = [OCTUser userWithRawLogin:[KeychainWrapper valueForIdentifier:kRawLogin] server:OCTServer.dotComServer];
     OCTClient *client = [OCTClient authenticatedClientWithUser:user token:[KeychainWrapper valueForIdentifier:kAccessTokenKey]];
     
     return client;

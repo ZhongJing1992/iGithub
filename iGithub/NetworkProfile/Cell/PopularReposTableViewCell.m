@@ -20,25 +20,11 @@
 
 @implementation PopularReposTableViewCell
 
-- (void)setRepoTitle:(NSString *)repoTitle {
-    _repoTitleLabel.text = repoTitle;
-}
-
-- (void)setRepoDescription:(NSString *)repoDescription {
-    if (repoDescription.length != 0) {
-        _repoDescriptionLabel.text = repoDescription;
-    } else {
-        _repoDescriptionLabel.text = @" ";
-    }
-}
-
-- (void)setRepoStars:(NSUInteger)repoStars {
-    _repoStarsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)repoStars];
-}
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
         _octiconRepo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OctRepo"]];
         _octiconRepo.translatesAutoresizingMaskIntoConstraints = NO;
         
@@ -78,6 +64,23 @@
     
     return self;
 }
+
+- (void)setRepoTitle:(NSString *)repoTitle {
+    _repoTitleLabel.text = repoTitle;
+}
+
+- (void)setRepoDescription:(NSString *)repoDescription {
+    if (repoDescription.length != 0) {
+        _repoDescriptionLabel.text = repoDescription;
+    } else {
+        _repoDescriptionLabel.text = @" ";
+    }
+}
+
+- (void)setRepoStars:(NSUInteger)repoStars {
+    _repoStarsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)repoStars];
+}
+
 
 - (void)updateConstraints {
     if (!self.didSetupConstraints) {
